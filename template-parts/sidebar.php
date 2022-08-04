@@ -14,11 +14,7 @@
       <div class="relative flex items-center mb-6 last:mb-0">
         <a href="<?php the_permalink(); ?>" class="absolute-link"></a>
         <div class="mr-4">
-          <?php 
-            $photos = carbon_get_the_post_meta('crb_places_gallery');
-          ?>
-            <?php $photo_first_src = wp_get_attachment_image_src($photos[0], 'medium'); ?>
-            <img src="<?php echo $photo_first_src[0]; ?>" loading="lazy" class="w-[40px] min-w-[60px] h-[40px] min-h-[60px] object-cover rounded-lg"> 
+          <img src="<?php echo get_the_post_thumbnail_url(); ?>" loading="lazy" class="w-[40px] min-w-[60px] h-[40px] min-h-[60px] object-cover rounded-lg"> 
         </div>
         <div>
           <div class="mb-1"><?php the_title(); ?></div>

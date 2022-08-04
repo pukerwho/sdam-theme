@@ -12,7 +12,7 @@ function create_post_type() {
       'hierarchical' => true,
       'show_in_rest' => false,
       'menu_icon' => 'dashicons-feedback',
-      'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'custom-fields', 'revisions' ),
+      'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'custom-fields', 'revisions', 'page-attributes' ),
     )
   );
 

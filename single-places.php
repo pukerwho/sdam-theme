@@ -35,16 +35,16 @@
           </div>
           <div class="mb-6">
             <?php $getField = carbon_get_the_post_meta('crb_ad_zditmy'); ?>
-            <div class="text-base bg-indigo-100 rounded px-4 py-3 mb-2"><span class="mr-4">👶 <?php _e("Чи можна з маленькими дітьми?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
+            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">👶 <?php _e("Чи можна з маленькими дітьми?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
 
             <?php $getField = carbon_get_the_post_meta('crb_ad_ztvarinami'); ?>
-            <div class="text-base bg-indigo-100 rounded px-4 py-3 mb-2"><span class="mr-4">🐕 <?php _e("Чи можна з тваринами?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
+            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">🐕 <?php _e("Чи можна з тваринами?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
 
             <?php $getField = carbon_get_the_post_meta('crb_ad_studentam'); ?>
-            <div class="text-base bg-indigo-100 rounded px-4 py-3 mb-2"><span class="mr-4">👨‍🎓 <?php _e("Чи можна студентам", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
+            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">👨‍🎓 <?php _e("Чи можна студентам", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
 
             <?php $getField = carbon_get_the_post_meta('crb_ad_kyryashim'); ?>
-            <div class="text-base bg-indigo-100 rounded px-4 py-3 mb-2"><span class="mr-4">🚬 <?php _e("Чи можна палити у квартирі?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
+            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">🚬 <?php _e("Чи можна палити у квартирі?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
 
           </div>
           <div class="flex flex-col xl:flex-row xl:-mx-4 mb-8">
@@ -279,25 +279,27 @@
             </div>
           </div>
           <h2 class="text-2xl font-bold mb-4"><span class="border-b-4 border-indigo-300"><?php _e("Галерея", "treba-wp"); ?></span></h2>
+          
           <div class="mb-6">
-            <?php 
-              $photos = carbon_get_the_post_meta('crb_places_gallery');
-            ?>
+           
             <div class="flex flex-wrap items-center -mx-3 mb-4">
-              <?php foreach ( $photos as $photo ): ?>
-                <?php $photo_src = wp_get_attachment_image_src($photo, 'large'); ?>
-                <div class="w-1/2 lg:w-1/4 px-3 mb-2">
-                  <a href="<?php echo $photo_src[0]; ?>" data-lightbox="product-gallery" data-title="<?php the_title(); ?>">
-                    <img src="<?php echo $photo_src[0]; ?>" loading="lazy" class="w-full h-24 lg:h-32 object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
-                  </a>
-                </div>
+              <?php 
+                $attimages = get_attached_media('image', $currentId);
+                foreach ($attimages as $image): 
+              ?>
+              <div class="w-1/2 lg:w-1/4 px-3 mb-2">
+                <a href="<?php echo wp_get_attachment_url($image->ID); ?>" data-lightbox="product-gallery" data-title="<?php the_title(); ?>">
+                  <img src="<?php echo wp_get_attachment_url($image->ID); ?>" loading="lazy" class="w-full h-24 lg:h-32 object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
+                </a>
+              </div>
+              
               <?php endforeach; ?>
             </div>
           </div>
           <div class="mb-6">
             <div class="text-xl"><span class="border-b-4 border-indigo-300 font-bold"><?php _e("Ціна", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta('crb_places_price'); ?></div>
           </div>
-          <div class="bg-yellow-200 rounded-lg px-6 py-3 mb-6">
+          <div class="bg-yellow-200 dark:bg-gray-600 rounded-lg px-6 py-3 mb-6">
             <span class="text-xl font-bold"><?php _e("Рейтинг оголошення", "treba-wp"); ?>:</span> <?php echo carbon_get_the_post_meta('crb_places_rating'); ?> / 5 (<?php _e("Оцінок", "treba-wp"); ?>: <?php echo carbon_get_the_post_meta('crb_places_rating_count'); ?>)
           </div>
           <div>
