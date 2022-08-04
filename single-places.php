@@ -279,9 +279,7 @@
             </div>
           </div>
           <h2 class="text-2xl font-bold mb-4"><span class="border-b-4 border-indigo-300"><?php _e("Галерея", "treba-wp"); ?></span></h2>
-          
           <div class="mb-6">
-           
             <div class="flex flex-wrap items-center -mx-3 mb-4">
               <?php 
                 $attimages = get_attached_media('image', $currentId);
