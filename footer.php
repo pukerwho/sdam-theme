@@ -1,5 +1,34 @@
-<footer>
-  text
+<footer class="bg-gray-700 text-gray-200 rounded-b-xl py-12">
+  <div class="container">
+    <div class="flex xl:-mx-4">
+      <div class="w-full xl:w-1/2 xl:px-4">
+        <div class="flex relative text-xl mb-4">
+          <a href="<?php echo get_home_url(); ?>" class="absolute-link"></a>
+          <div class="border-b-2 border-t-2 border-t-transparent border-b-blue-500 mr-1">
+            Сдам
+          </div>
+          <div class="border-t-2 border-b-2 border-b-transparent border-yellow-400">
+            квартиру
+          </div>
+        </div>
+        <div class="w-full xl:w-9/12">
+          <?php _e("Всі можливі пропозиціі по довгостроковій оренді квартир в Україні зібрані на одном сайті. ", "treba-wp"); ?>
+        </div>
+      </div>
+      <div class="w-full xl:w-1/4 xl:px-4">
+        <div class="text-xl font-bold mb-2"><?php _e("Навігація", "treba-wp"); ?></div>
+        <?php wp_nav_menu([
+          'theme_location' => 'header',
+          'container' => 'div',
+          'menu_class' => 'flex flex-col'
+        ]); ?> 
+      </div>
+      <div class="w-full xl:w-1/4 xl:px-4">
+        <div class="text-xl font-bold mb-2"><?php _e("Напишіть нам", "treba-wp"); ?></div>
+        <div>✉️ info@sdamkvartiry.com</div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <!-- MODAL CONTACT -->
