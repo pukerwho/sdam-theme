@@ -290,7 +290,6 @@
                   <img src="<?php echo wp_get_attachment_url($image->ID); ?>" loading="lazy" class="w-full h-24 lg:h-32 object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
                 </a>
               </div>
-              
               <?php endforeach; ?>
             </div>
           </div>
