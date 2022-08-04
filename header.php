@@ -49,10 +49,12 @@
                 </div>
               </div>
               <div class="mr-6"><a href="#" class="bg-indigo-500 hover:bg-indigo-700 text-gray-200 hover:text-gray-200 rounded px-6 py-2"><?php _e("Додати", "treba-wp"); ?> +</a></div>
-              <div class="lang text-sm flex">
-                <?php if (function_exists('pll_the_languages')) { 
-                  pll_the_languages(); 
-                } ?>
+              <div class="lang">
+                <?php wp_nav_menu([
+                  'theme_location' => 'lang_header',
+                  'container' => 'div',
+                  'menu_class' => 'flex',
+                ]); ?> 
               </div>
             </div>
             <div class="xl:hidden text-indigo-500 cursor-pointer modal-js" data-modal="menu">

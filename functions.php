@@ -16,8 +16,7 @@ if ( ! function_exists( 'treba_wp_setup' ) ) :
 			array(
 				'header' => esc_html__( 'Header', 'treba-wp' ),
         'mobile' => esc_html__( 'Mobile', 'treba-wp' ),
-        'footer_info' => esc_html__( 'Footer info', 'treba-wp' ),
-        'products_menu' => esc_html__( 'Меню для продуктів', 'treba-wp' ),
+        'lang_header' => esc_html__( 'Lang', 'treba-wp' ),
 			)
 		);
 

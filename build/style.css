@@ -332,16 +332,16 @@ a:hover {
   background-color: #d69928;
 }
 
-.lang-item {
+.lang li {
   list-style-type: none;
 }
 
-.lang-item a {
+.lang li a {
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
 
-.lang-item.current-lang a {
+.lang li.wpml-ls-current-language a {
   border: 1px solid #6466f1;
 }
 

@@ -166,13 +166,13 @@ a {
 }
 
 .lang {
-  &-item {
+  li {
     list-style-type: none;
     a {
       border-radius: 0.5rem;
       padding: 0.5rem;
     }
-    &.current-lang {
+    &.wpml-ls-current-language {
       a {
         border: 1px solid #6466f1;
       }

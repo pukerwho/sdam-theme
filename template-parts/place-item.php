@@ -32,7 +32,7 @@
     <div class="flex flex-wrap items-center -mx-3 mb-4">
       <?php 
         $attimages = get_attached_media('image', $currentId);
-        foreach ($attimages as $image): 
+        foreach (array_slice($attimages, 0, 4) as $image): 
       ?>
       <div class="w-1/2 lg:w-1/4 px-3 mb-2">
         <a href="<?php echo wp_get_attachment_url($image->ID); ?>" data-lightbox="product-gallery" data-title="<?php the_title(); ?>">
