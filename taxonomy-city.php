@@ -28,7 +28,9 @@ $current_cat_id = get_queried_object_id();
             ),
           ) );
         if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+        <div class="mb-6">
           <?php get_template_part('template-parts/place-item'); ?>
+        </div>
         <?php endwhile; endif; wp_reset_postdata(); ?>
 
         <div class="b_pagination text-center">
