@@ -142,3 +142,12 @@ msgstr "Оценок"
 
 msgid "Коментарі"
 msgstr "Комментарии"
+
+msgid "Зручності"
+msgstr "Удобства"
+
+msgid "Так"
+msgstr "Да"
+
+msgid "Ні"
+msgstr "Нет"
