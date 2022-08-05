@@ -146,8 +146,8 @@ msgstr "Комментарии"
 msgid "Зручності"
 msgstr "Удобства"
 
-msgid "Так"
-msgstr "Да"
+msgid "✅ Так"
+msgstr "✅ Да"
 
-msgid "Ні"
-msgstr "Нет"
+msgid "❌ Ні"
+msgstr "❌ Нет"

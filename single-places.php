@@ -35,16 +35,16 @@
           </div>
           <div class="mb-6">
             <?php $getField = carbon_get_the_post_meta('crb_ad_zditmy'); ?>
-            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">👶 <?php _e("Чи можна з маленькими дітьми?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
+            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">👶 <?php _e("Чи можна з маленькими дітьми?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). ''; ?></span></div>
 
             <?php $getField = carbon_get_the_post_meta('crb_ad_ztvarinami'); ?>
-            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">🐕 <?php _e("Чи можна з тваринами?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
+            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">🐕 <?php _e("Чи можна з тваринами?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). ''; ?></span></div>
 
             <?php $getField = carbon_get_the_post_meta('crb_ad_studentam'); ?>
-            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">👨‍🎓 <?php _e("Чи можна студентам?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
+            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">👨‍🎓 <?php _e("Чи можна студентам?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). ''; ?></span></div>
 
             <?php $getField = carbon_get_the_post_meta('crb_ad_kyryashim'); ?>
-            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">🚬 <?php _e("Чи можна палити у квартирі?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
+            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">🚬 <?php _e("Чи можна палити у квартирі?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). ''; ?></span></div>
 
           </div>
           <div class="flex flex-col xl:flex-row xl:-mx-4 mb-8">
@@ -81,7 +81,7 @@
                     <div class="text-gray-500 dark:text-gray-300">
                       <?php
                         $getField = carbon_get_the_post_meta('crb_ad_lichilnyky');
-                        echo ($getField === 'yes') ? '✅ Так' : '❌ Ні';
+                        echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). '';
                       ?>
                     </div>
                   </td>
@@ -96,7 +96,7 @@
                     <div class="text-gray-500 dark:text-gray-300">
                       <?php
                         $getField = carbon_get_the_post_meta('crb_ad_wifi');
-                        echo ($getField === 'yes') ? '✅ Так' : '❌ Ні';
+                        echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). '';
                       ?>
                     </div>
                   </td>
@@ -111,7 +111,7 @@
                     <div class="text-gray-500 dark:text-gray-300">
                       <?php
                         $getField = carbon_get_the_post_meta('crb_ad_pralnamashina');
-                        echo ($getField === 'yes') ? '✅ Так' : '❌ Ні';
+                        echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). '';
                       ?>
                     </div>
                   </td>
@@ -126,7 +126,7 @@
                     <div class="text-gray-500 dark:text-gray-300">
                       <?php
                         $getField = carbon_get_the_post_meta('crb_ad_mikrovolnovka');
-                        echo ($getField === 'yes') ? '✅ Так' : '❌ Ні';
+                        echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). '';
                       ?>
                     </div>
                   </td>
@@ -141,7 +141,7 @@
                     <div class="text-gray-500 dark:text-gray-300">
                       <?php
                         $getField = carbon_get_the_post_meta('crb_ad_konditcioner');
-                        echo ($getField === 'yes') ? '✅ Так' : '❌ Ні';
+                        echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). '';
                       ?>
                     </div>
                   </td>
@@ -156,7 +156,7 @@
                     <div class="text-gray-500 dark:text-gray-300">
                       <?php
                         $getField = carbon_get_the_post_meta('crb_ad_boyler');
-                        echo ($getField === 'yes') ? '✅ Так' : '❌ Ні';
+                        echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). '';
                       ?>
                     </div>
                   </td>
@@ -171,7 +171,7 @@
                     <div class="text-gray-500 dark:text-gray-300">
                       <?php
                         $getField = carbon_get_the_post_meta('crb_ad_televizor');
-                        echo ($getField === 'yes') ? '✅ Так' : '❌ Ні';
+                        echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). '';
                       ?>
                     </div>
                   </td>
@@ -186,7 +186,7 @@
                     <div class="text-gray-500 dark:text-gray-300">
                       <?php
                         $getField = carbon_get_the_post_meta('crb_ad_posud');
-                        echo ($getField === 'yes') ? '✅ Так' : '❌ Ні';
+                        echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). '';
                       ?>
                     </div>
                   </td>
@@ -201,7 +201,7 @@
                     <div class="text-gray-500 dark:text-gray-300">
                       <?php
                         $getField = carbon_get_the_post_meta('crb_ad_ostekleniybalkon');
-                        echo ($getField === 'yes') ? '✅ Так' : '❌ Ні';
+                        echo ($getField === 'yes') ? ''. _e("✅ Так", "treba-wp").'' : ''. _e("❌ Ні", "treba-wp"). '';
                       ?>
                     </div>
                   </td>
