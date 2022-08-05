@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="container py-8 xl:py-12">
-  <h1 class="text-3xl xl:text-4xl mb-12"><?php _e('Довгострокова оренда квартир у Києві', 'treba-wp'); ?></h1>
+  <h1 class="text-3xl xl:text-4xl mb-12"><?php _e('Довгострокова оренда квартир в Україні', 'treba-wp'); ?></h1>
   <div class="flex flex-wrap xl:-mx-10">
     <div class="w-full xl:w-2/3 xl:px-10">
       <div class="flex items-center -mx-2 mb-8">
