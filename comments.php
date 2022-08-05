@@ -34,7 +34,7 @@ if ( post_password_required() )
 											array(
 												'depth'     => 1,
 												'max_depth' => 5,
-												'reply_text' => __('Ответить', 'restx'),
+												'reply_text' => __('Відповісти', 'treba-wp'),
 												'respond_id' => 'respond',
 											)
 										); 

@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="w-full xl:w-9/12">
-          <?php _e("Всі можливі пропозиціі по довгостроковій оренді квартир в Україні зібрані на одном сайті. ", "treba-wp"); ?>
+          <?php _e("Всі можливі пропозиціі по довгостроковій оренді квартир в Україні зібрані на одном сайті.", "treba-wp"); ?>
         </div>
       </div>
       <div class="w-full xl:w-1/4 xl:px-4">
@@ -30,24 +30,6 @@
     </div>
   </div>
 </footer>
-
-<!-- MODAL CONTACT -->
-<div class="modal" data-modal="contact">
-  <div class="modal_content w-4/5 lg:w-2/3 bg-main-dark rounded-xl">
-    <div class="modal_content_close modal-close-js">
-      ✖️
-    </div>
-    <div class="mt-6">
-      <!-- ФОРМА -->
-      <h2 class="text-3xl uppercase mb-10"><?php _e('Відправити запит', 'treba-wp'); ?></h2>
-      <?php get_template_part('template-parts/components/contact-form'); ?>
-      <div class="form_callback_success hidden bg-orange-100 dark:bg-dark-xl rounded-lg p-4"><?php _e("Ми отримали вашу заявку. Найближчим часом ми з вами зв'яжемося.", "treba-wp"); ?></div>
-      </div>
-      <!-- END ФОРМА -->
-    </div>
-  </div>
-</div>
-<!-- END MODAL CONTACT -->
 
 <div class="modal" data-modal="menu">
   <div class="modal_content w-full h-screen">

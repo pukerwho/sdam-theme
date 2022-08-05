@@ -41,7 +41,7 @@
             <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">🐕 <?php _e("Чи можна з тваринами?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
 
             <?php $getField = carbon_get_the_post_meta('crb_ad_studentam'); ?>
-            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">👨‍🎓 <?php _e("Чи можна студентам", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
+            <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">👨‍🎓 <?php _e("Чи можна студентам?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
 
             <?php $getField = carbon_get_the_post_meta('crb_ad_kyryashim'); ?>
             <div class="text-base bg-indigo-100 dark:bg-gray-600 rounded px-4 py-3 mb-2"><span class="mr-4">🚬 <?php _e("Чи можна палити у квартирі?", "treba-wp"); ?></span> -  <span class="ml-4 font-bold"><?php  echo ($getField === 'yes') ? '✅ Так' : '❌ Ні '; ?></span></div>
@@ -105,7 +105,7 @@
                 <!-- TR ROW -->
                 <tr class="border-b border-gray-300 dark:border-gray-700">
                   <td class="whitespace-nowrap px-2 py-3">
-                    <div class="text-gray-500 dark:text-gray-300 font-bold"><?php _e("Пральна машинка", "treba-wp"); ?></div>
+                    <div class="text-gray-500 dark:text-gray-300 font-bold"><?php _e("Пральна машина", "treba-wp"); ?></div>
                   </td>
                   <td class="whitespace-nowrap px-2 py-3">
                     <div class="text-gray-500 dark:text-gray-300">
@@ -265,14 +265,14 @@
               <!-- Item -->
               <?php if (carbon_get_the_post_meta('crb_ad_poshta') === "yes"): ?>
               <div class="mb-2 px-2">
-                <div class="bg-gray-200 dark:bg-gray-600 rounded-lg px-4 py-2"><?php _e("Відділеня пошти", "treba-wp"); ?></div>
+                <div class="bg-gray-200 dark:bg-gray-600 rounded-lg px-4 py-2"><?php _e("Відділення пошти", "treba-wp"); ?></div>
               </div>
               <?php endif; ?>
               <!-- END Item -->
               <!-- Item -->
               <?php if (carbon_get_the_post_meta('crb_ad_bank') === "yes"): ?>
               <div class="mb-2 px-2">
-                <div class="bg-gray-200 dark:bg-gray-600 rounded-lg px-4 py-2"><?php _e("Відділеня банку", "treba-wp"); ?></div>
+                <div class="bg-gray-200 dark:bg-gray-600 rounded-lg px-4 py-2"><?php _e("Відділення банку", "treba-wp"); ?></div>
               </div>
               <?php endif; ?>
               <!-- END Item -->
@@ -297,7 +297,7 @@
             <div class="text-xl"><span class="border-b-4 border-indigo-300 font-bold"><?php _e("Ціна", "treba-wp"); ?></span>: <?php echo carbon_get_the_post_meta('crb_places_price'); ?></div>
           </div>
           <div class="bg-yellow-200 dark:bg-gray-600 rounded-lg px-6 py-3 mb-6">
-            <span class="text-xl font-bold"><?php _e("Рейтинг оголошення", "treba-wp"); ?>:</span> <?php echo carbon_get_the_post_meta('crb_places_rating'); ?> / 5 (<?php _e("Оцінок", "treba-wp"); ?>: <?php echo carbon_get_the_post_meta('crb_places_rating_count'); ?>)
+            <span class="text-xl font-bold"><?php _e("Рейтинг оголошення", "treba-wp"); ?>:</span> <?php echo carbon_get_the_post_meta('crb_places_rating'); ?>/5 (<?php _e("Оцінок", "treba-wp"); ?>: <?php echo carbon_get_the_post_meta('crb_places_rating_count'); ?>)
           </div>
           <div>
             <?php if (carbon_get_the_post_meta('crb_places_author')): ?>
@@ -306,7 +306,7 @@
           </div>
         </div>  
         <div>
-          <div class="text-2xl mb-6"><span class="border-b-4 border-indigo-300 font-bold"><?php _e("Комментарі", "treba-wp"); ?></span></div>
+          <div class="text-2xl mb-6"><span class="border-b-4 border-indigo-300 font-bold"><?php _e("Коментарі", "treba-wp"); ?></span></div>
           <div class="content">
             <?php comments_template(); ?>
           </div>
