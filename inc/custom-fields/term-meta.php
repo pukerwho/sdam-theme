@@ -16,12 +16,6 @@ function crb_term_options() {
   ->where( 'term_taxonomy', '=', 'city' ) // only show our new field for categories
   ->add_fields( array(
     Field::make( 'image', 'crb_city_img', 'Заглавная картинка' )->set_value_type( 'url'),
-    Field::make( 'select', 'crb_city_region', 'Регион' )
-    ->add_options( array(
-      'azovsea' => 'Азовское море',
-      'blacksea' => 'Черное море',
-      'karpaty' => 'Карпаты',
-    ) ),
   ));
 }
 
