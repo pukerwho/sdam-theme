@@ -107,25 +107,6 @@
   z-index: 11;
 }
 
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-}
-.btn-primary:before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: #ffffff;
-  transform: translateX(-100%);
-  transition: transform 0.35s;
-}
-.btn-primary:hover:before {
-  transform: translateX(0);
-}
-
 .breadcrumbs_item {
   position: relative;
 }

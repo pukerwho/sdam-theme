@@ -1,28 +1,8 @@
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-  &:before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0; top: 0;
-    background-color: #ffffff;
-    transform: translateX(-100%);
-    transition: transform 0.35s;
-  }
-  &:hover {
-    &:before {
-      transform: translateX(0);
-    }
-  }
-}
-
 .breadcrumbs {
   &_item {
     position: relative;
     &:first-of-type {
-      background: url('../../images/home.svg');
+      background: url("../../images/home.svg");
       background-repeat: no-repeat;
       background-size: contain;
     }
@@ -32,12 +12,13 @@
       }
     }
     &:after {
-      content: '';
+      content: "";
       width: 10px;
       height: 10px;
       position: absolute;
-      top: 51%; right: -1rem;
-      background: url('../../images/breadcrumbs-arrow.svg');
+      top: 51%;
+      right: -1rem;
+      background: url("../../images/breadcrumbs-arrow.svg");
       background-size: contain;
       background-repeat: no-repeat;
       -webkit-transform: translateY(-50%) translateX(-100%);
