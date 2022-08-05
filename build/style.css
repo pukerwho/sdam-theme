@@ -313,16 +313,16 @@ a:hover {
   background-color: #d69928;
 }
 
-.lang li {
+.lang-item {
   list-style-type: none;
 }
 
-.lang li a {
+.lang-item a {
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
 
-.lang li.wpml-ls-current-language a {
+.lang-item.current-lang a {
   border: 1px solid #6466f1;
 }
 

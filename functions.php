@@ -138,3 +138,12 @@ function update_time_read( ) {
 }
 add_action( 'wp_ajax_nopriv_update_time_read_action', 'update_time_read' );
 add_action( 'wp_ajax_update_time_read_action', 'update_time_read' );
+
+function prefix_custom_fields_to_translate($custom_fields) {
+	// return keys of your custom fields with image id
+  return array(
+    'my_custom_image_field',
+    'other_custom_image_field'
+  );
+}
+add_filter( 'polylang-translate-existing-media-custom-fields-with-image-id', 'prefix_custom_fields_to_translate' );
