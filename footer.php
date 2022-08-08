@@ -1,7 +1,7 @@
 <footer class="bg-gray-700 text-gray-200 rounded-b-xl py-12">
   <div class="container">
-    <div class="flex xl:-mx-4">
-      <div class="w-full xl:w-1/2 xl:px-4">
+    <div class="flex flex-wrap flex-col xl:flex-row xl:-mx-4">
+      <div class="w-full xl:w-1/2 xl:px-4 mb-6 xl:mb-0">
         <div class="flex relative text-xl mb-4">
           <a href="<?php echo get_home_url(); ?>" class="absolute-link"></a>
           <div class="border-b-2 border-t-2 border-t-transparent border-b-blue-500 mr-1">
@@ -15,7 +15,7 @@
           <?php _e("Всі можливі пропозиціі по довгостроковій оренді квартир в Україні зібрані на одном сайті.", "treba-wp"); ?>
         </div>
       </div>
-      <div class="w-full xl:w-1/4 xl:px-4">
+      <div class="w-full xl:w-1/4 xl:px-4 mb-6 xl:mb-0">
         <div class="text-xl font-bold mb-2"><?php _e("Навігація", "treba-wp"); ?></div>
         <?php wp_nav_menu([
           'theme_location' => 'header',

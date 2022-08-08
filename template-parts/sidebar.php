@@ -38,3 +38,17 @@
     <?php endforeach; ?>
   </div>
 </div>
+
+<div class="bg-gray-100 dark:bg-gray-700 shadow-lg  rounded border-t-4 border-t-indigo-500 p-4 mb-12">
+  <div class="text-xl uppercase font-bold mb-4"><?php _e("Популярні райони", "treba-wp"); ?></div>
+  <div>
+    <?php 
+    $categories = get_terms(array( 'taxonomy' => 'district' ));
+    foreach($categories as $category): ?>
+      <div class="relative text-lg mb-2">
+        <a href="<?php echo get_term_link($category->term_id, 'district') ?>" class="absolute-link"></a>
+        <div>👉 <span class=""><?php echo $category->name; ?></span></div>
+      </div>
+    <?php endforeach; ?>
+  </div>
+</div>
