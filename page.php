@@ -6,7 +6,7 @@
   <h1 class="text-3xl xl:text-4xl mb-12"><?php the_title(); ?></h1>
   <div class="flex flex-wrap xl:-mx-10">
     <div class="w-full xl:w-2/3 xl:px-10">
-      <div class="content bg-gray-100 rounded-lg shadow-lg border-2 border-indigo-300 px-8 py-6 mb-6">
+      <div class="content bg-gray-100 dark:bg-gray-600 dark:text-gray-200 rounded-lg shadow-lg border-2 border-indigo-300 px-8 py-6 mb-6">
         <?php the_content(); ?>
       </div>
     </div>
