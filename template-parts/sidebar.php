@@ -52,3 +52,27 @@
     <?php endforeach; ?>
   </div>
 </div>
+
+<?php if( is_front_page() ): ?>
+<div class="bg-gray-100 dark:bg-gray-700 shadow-lg  rounded border-t-4 border-t-indigo-500 p-4 mb-12">
+  <div class="text-xl uppercase font-bold mb-4"><?php _e("Корисні сайти", "treba-wp"); ?></div>
+  <div>
+    <div class="relative text-lg mb-2">
+      <a href="https://uaphilanthrop.com/products/for-space/aroma-diffusers/" class="absolute-link"></a>
+      <div>🔗 <span class="">Аромадиффузор для дома</span></div>
+    </div>
+    <div class="relative text-lg mb-2">
+      <a href="https://akvalekar.com/ru/protochnye-ionizatory-vody/" class="absolute-link"></a>
+      <div>🔗 <span class="">Проточные ионизаторы воды</span></div>
+    </div>
+    <div class="relative text-lg mb-2">
+      <a href="https://airq.com.ua/ru/services/aromatyzatsyia-hostynyts-khostelov/" class="absolute-link"></a>
+      <div>🔗 <span class="">Ароматизация отеля</span></div>
+    </div>
+    <div class="relative text-lg mb-2">
+      <a href="https://midsun-aroma.com/ru/aromatizaciya-meropriyatij" class="absolute-link"></a>
+      <div>🔗 <span class="">Ароматизация мероприятий</span></div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
