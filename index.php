@@ -16,6 +16,7 @@
         )
       )
     );
+    shuffle( $cities );
     foreach($cities as $city): ?>
       <div class="citycard w-1/2 min-w-[200px] xl:w-1/5 mb-4 px-2">
         <div class="relative">
