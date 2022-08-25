@@ -94,6 +94,7 @@
   background: url(93fbb20daa8679e21d1a.svg);
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: 0px -1.5px;
 }
 .breadcrumbs_item:last-of-type:after {
   content: none;
@@ -105,7 +106,7 @@
   position: absolute;
   top: 51%;
   right: -1rem;
-  background: url(8b1d5e1793d59cfd8339.svg);
+  background: url(8510d35ae13eccdf2bc3.svg);
   background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translateY(-50%) translateX(-100%);
@@ -382,6 +383,11 @@ a:hover {
 }
 
 .products-tabs::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.citycards::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
