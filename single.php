@@ -21,7 +21,7 @@
                 <meta itemprop="position" content="1">
               </li>
               <li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem' class="breadcrumbs_item px-4">
-                <a itemprop="item" href="<?php echo get_post_type_archive_link('post'); ?>" class="text-indigo-400 dark:text-indigo-200">
+                <a itemprop="item" href="<?php echo get_page_url('page-blog'); ?>" class="text-indigo-400 dark:text-indigo-200">
                   <span itemprop="name"><?php _e( 'Блог', 'treba-wp' ); ?></span>
                 </a>                        
                 <meta itemprop="position" content="2">
