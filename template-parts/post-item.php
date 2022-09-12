@@ -10,10 +10,10 @@
       class="w-full h-full object-cover rounded-l-xl" 
       alt="<?php the_title(); ?>" 
       src="<?php echo $medium_thumb; ?>" 
-      srcset="<?php echo $medium_thumb; ?> 1x, <?php echo $large_thumb; ?> 2x" 
+      srcset="<?php echo $medium_thumb; ?> 1024w, <?php echo $large_thumb; ?> 1536w" 
       loading="lazy" 
       data-src="<?php echo $medium_thumb; ?>" 
-      data-srcset="<?php echo $medium_thumb; ?> 1x, <?php echo $large_thumb; ?> 2x">
+      data-srcset="<?php echo $medium_thumb; ?> 1024w, <?php echo $large_thumb; ?> 1536w">
     </div>
     <div class="w-full xl:w-8/12 p-6">
       <div class="text-lg font-bold mb-6"><?php the_title(); ?></div>
