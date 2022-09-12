@@ -286,8 +286,8 @@
                 foreach ($attimages as $image): 
               ?>
               <div class="w-1/2 lg:w-1/4 px-3 mb-2">
-                <a href="<?php echo wp_get_attachment_url($image->ID); ?>" data-lightbox="product-gallery" data-title="<?php the_title(); ?>">
-                  <img src="<?php echo wp_get_attachment_url($image->ID); ?>" loading="lazy" class="w-full h-24 lg:h-32 object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
+                <a href="<?php echo wp_get_attachment_image_src($image->ID, 'large')[0]; ?>" data-lightbox="product-gallery" data-title="<?php the_title(); ?>">
+                  <img src="<?php echo wp_get_attachment_image_src($image->ID, 'medium')[0]; ?>" loading="lazy" class="w-full h-24 lg:h-32 object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
                 </a>
               </div>
               <?php endforeach; ?>
