@@ -2,7 +2,18 @@
   <a href="<?php the_permalink(); ?>" class="absolute-link"></a>
   <div class="flex flex-wrap flex-col xl:flex-row">
     <div class="w-full xl:w-4/12">
-      <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="w-full h-full object-cover rounded-l-xl">
+      <?php 
+        $medium_thumb = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+        $large_thumb = get_the_post_thumbnail_url(get_the_ID(), 'large');
+      ?>
+      <img 
+      class="w-full h-full object-cover rounded-l-xl" 
+      alt="<?php the_title(); ?>" 
+      src="<?php echo $medium_thumb; ?>" 
+      srcset="<?php echo $medium_thumb; ?> 1x, <?php echo $large_thumb; ?> 2x" 
+      loading="lazy" 
+      data-src="<?php echo $medium_thumb; ?>" 
+      data-srcset="<?php echo $medium_thumb; ?> 1x, <?php echo $large_thumb; ?> 2x">
     </div>
     <div class="w-full xl:w-8/12 p-6">
       <div class="text-lg font-bold mb-6"><?php the_title(); ?></div>
