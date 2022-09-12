@@ -1,3 +1,5 @@
+var $ = require("jquery");
+
 if (
   localStorage.theme === "dark" ||
   (!("theme" in localStorage) &&
