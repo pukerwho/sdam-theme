@@ -70,6 +70,7 @@ remove_action( 'wp_head', 'feed_links', 2 );
  * Enqueue scripts and styles.
  */
 function trebawp_scripts() {
+
 	wp_enqueue_style( 'tailwind', get_stylesheet_directory_uri() . '/build/tailwind.css', false, time() );
 	wp_enqueue_style( 'styles', get_stylesheet_directory_uri() . '/build/style.css', false, time() );
 	
@@ -80,6 +81,12 @@ function trebawp_scripts() {
 	// }
 }
 add_action( 'wp_enqueue_scripts', 'trebawp_scripts' );
+
+function wpdocs_enqueue_custom_admin_style() {
+  wp_register_style( 'admin-style', get_template_directory_uri() . '/build/admin-style.css', false, time() );
+  wp_enqueue_style( 'admin-style' );
+}
+add_action( 'admin_enqueue_scripts', 'wpdocs_enqueue_custom_admin_style' );
 
 // Создаем счетчик для записей
 function tutCount($post_id) {
