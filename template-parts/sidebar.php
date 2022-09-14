@@ -1,3 +1,29 @@
+<?php if ( is_tax( 'city' ) ): ?>
+  <div class="bg-gray-100 dark:bg-gray-700 shadow-lg  rounded border-t-4 border-t-indigo-500 p-4 mb-12">
+    <div class="text-xl uppercase font-bold mb-4"><?php _e("Райони у місті", "treba-wp"); ?></div>
+    <div>
+      <?php 
+        $districts_array = [];
+        $districts = carbon_get_term_meta(get_queried_object_id(), 'crb_city_district'); 
+        foreach($districts as $district) {
+          $district_id = $district['id'];
+          array_push($districts_array, $district_id);
+        }
+      ?>
+      <?php $districts_terms = get_terms(array(
+        'taxonomy' => 'district',
+        'include' => $districts_array,
+      )) ?>
+      <?php foreach($districts_terms as $districts_term): ?>
+        <div class="relative text-lg mb-2">
+          <a href="<?php echo get_term_link($districts_term->term_id, 'district') ?>" class="absolute-link"></a>
+          <div>👉 <span class=""><?php echo $districts_term->name; ?></span></div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+<?php endif; ?>
+
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Популярні пропозиції", "treba-wp"); ?></div>
   <div>
@@ -63,6 +89,7 @@
   </div>
 </div>
 
+<?php if ( !is_tax( 'city' ) ): ?>
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg  rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Популярні райони", "treba-wp"); ?></div>
   <div>
@@ -76,6 +103,7 @@
     <?php endforeach; ?>
   </div>
 </div>
+<?php endif; ?>
 
 <?php if( is_front_page() ): ?>
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg  rounded border-t-4 border-t-indigo-500 p-4 mb-12">
