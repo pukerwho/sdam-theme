@@ -1,6 +1,52 @@
+<?php
+
+$current_title = wp_get_document_title();
+
+if (is_tax( 'city' )) {
+	$city_title = single_term_title( "", false );
+	if (get_locale() === 'uk') {
+  	$help_title_text = 'довгострокова оренда квартири - зняти квартиру в м.';
+    $help_description_text = 'зняти квартиру на порталі Sdamkvartiry.com - широкий вибір квартир. Ціни, фото, контакти.';
+  } else {
+    $help_title_text = 'долгосрочная аренда квартиры - снять квартиру в г.';
+    $help_description_text = 'снять квартиру на портале Sdamkvartiry.com – широкий выбор квартир. Цены, фотографии, контакты.';
+  }
+	$current_title = $city_title . ': ' . $help_title_text . '' . $city_title;
+  $current_description = $city_title . ': ' . $help_description_text;
+}
+
+if (is_tax( 'district' )) {
+	$district_title = single_term_title( "", false );
+	if (get_locale() === 'uk') {
+  	$help_title_text = 'зняти квартиру (довгостроково), вигідна аренда квартири';
+    $help_description_text = 'пошук квартири у районі. Знайти вигідно квартиру. Ціни, фото, контакти.';
+  } else {
+    $help_title_text = 'аренда квартиры (долгосрочно) - снять квартиру в г.';
+    $help_description_text = 'поиск квартир в районе. Найти выгодно квартиру. Цены, фотографии, контакты.';
+  }
+	$current_title = $district_title . ': ' . $help_title_text;
+  $current_description = $city_title . ': ' . $help_description_text;
+}
+
+if (is_home()) {
+	if (get_locale() === 'uk') {
+  	$current_title = 'Зняти квартиру в Україні - понад 13460 пропозицій, довгострокова оренда квартири';
+    $current_description = 'Довготривала оренда квартир в Україні. Винайняти квартиру помісячно. Величезна база квартир для оренди.';
+  } else {
+    $current_title = 'Снять квартиру в Украине - более 13460 предложений, долгосрочная аренда квартиры';
+    $current_description = 'Долгосрочная аренда квартир в Украине. Снять квартиру помесячно. Огромная база квартир для аренды.';
+  }
+}
+
+?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+  <title><?php echo $current_title; ?></title>
+  <?php if ($current_description): ?>
+    <meta name="description" content="<?php echo $current_description; ?>"/>
+  <?php endif; ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1D1E22" />
