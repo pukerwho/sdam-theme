@@ -6,13 +6,13 @@ if (is_tax( 'city' )) {
 	$city_title = single_term_title( "", false );
 	if (get_locale() === 'uk') {
   	$help_title_text = 'довгострокова оренда квартири - зняти квартиру в м.';
-    $help_description_text = 'зняти квартиру на порталі Sdamkvartiry.com - широкий вибір квартир. Ціни, фото, контакти.';
+    $help_description_text = 'зняти квартиру на порталі Sdamkvartiry.com - широкий вибір квартир. Ціни, фото, контакти. Аренда квартири в м.';
   } else {
     $help_title_text = 'долгосрочная аренда квартиры - снять квартиру в г.';
-    $help_description_text = 'снять квартиру на портале Sdamkvartiry.com – широкий выбор квартир. Цены, фотографии, контакты.';
+    $help_description_text = 'снять квартиру на портале Sdamkvartiry.com – широкий выбор квартир. Цены, фотографии, контакты. Аренда квартиры в г.';
   }
 	$current_title = $city_title . ': ' . $help_title_text . '' . $city_title;
-  $current_description = $city_title . ': ' . $help_description_text;
+  $current_description = $city_title . ': ' . $help_description_text . '' . $city_title;
 }
 
 if (is_tax( 'district' )) {
@@ -21,20 +21,20 @@ if (is_tax( 'district' )) {
   	$help_title_text = 'зняти квартиру (довгостроково), вигідна аренда квартири';
     $help_description_text = 'пошук квартири у районі. Знайти вигідно квартиру. Ціни, фото, контакти.';
   } else {
-    $help_title_text = 'аренда квартиры (долгосрочно) - снять квартиру в г.';
+    $help_title_text = 'снять квартиру (долгосрочно), выгодная аренда квартиры';
     $help_description_text = 'поиск квартир в районе. Найти выгодно квартиру. Цены, фотографии, контакты.';
   }
 	$current_title = $district_title . ': ' . $help_title_text;
-  $current_description = $city_title . ': ' . $help_description_text;
+  $current_description = $district_title . ': ' . $help_description_text;
 }
 
 if (is_home()) {
 	if (get_locale() === 'uk') {
   	$current_title = 'Зняти квартиру в Україні - понад 13460 пропозицій, довгострокова оренда квартири';
-    $current_description = 'Довготривала оренда квартир в Україні. Винайняти квартиру помісячно. Величезна база квартир для оренди.';
+    $current_description = 'Довготривала оренда квартир в Україні. Винайняти квартиру помісячно. Величезна база квартир для оренди. Пошук квартири на порталі Sdamkvartiry.com.';
   } else {
     $current_title = 'Снять квартиру в Украине - более 13460 предложений, долгосрочная аренда квартиры';
-    $current_description = 'Долгосрочная аренда квартир в Украине. Снять квартиру помесячно. Огромная база квартир для аренды.';
+    $current_description = 'Долгосрочная аренда квартир в Украине. Снять квартиру помесячно. Огромная база квартир для аренды. Поиск квартир на портале Sdamkvartiry.com.';
   }
 }
 
