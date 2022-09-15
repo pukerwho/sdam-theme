@@ -2,6 +2,14 @@
 
 $current_title = wp_get_document_title();
 
+if (is_singular( "post" )) {
+	$current_title = get_the_title();
+}
+
+if (is_page()) {
+	$current_title = get_the_title();
+}
+
 if (is_tax( 'city' )) {
 	$city_title = single_term_title( "", false );
 	if (get_locale() === 'uk') {
