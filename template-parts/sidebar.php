@@ -110,16 +110,8 @@
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Корисні сайти", "treba-wp"); ?></div>
   <div>
     <div class="relative text-lg mb-2">
-      <a href="https://uaphilanthrop.com/products/for-space/aroma-diffusers/" class="absolute-link"></a>
-      <div>🔗 <span class="">Аромадиффузор для дома</span></div>
-    </div>
-    <div class="relative text-lg mb-2">
       <a href="https://akvalekar.com/ru/protochnye-ionizatory-vody/" class="absolute-link"></a>
       <div>🔗 <span class="">Проточные ионизаторы воды</span></div>
-    </div>
-    <div class="relative text-lg mb-2">
-      <a href="https://airq.com.ua/ru/services/aromatyzatsyia-hostynyts-khostelov/" class="absolute-link"></a>
-      <div>🔗 <span class="">Ароматизация отеля</span></div>
     </div>
     <div class="relative text-lg mb-2">
       <a href="https://midsun-aroma.com/ru/aromatizaciya-meropriyatij" class="absolute-link"></a>
