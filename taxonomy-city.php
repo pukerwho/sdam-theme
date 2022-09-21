@@ -1,5 +1,6 @@
 <?php 
 $current_cat_id = get_queried_object_id();
+
 ?>
 
 <?php get_header(); ?>
@@ -8,9 +9,7 @@ $current_cat_id = get_queried_object_id();
       <?php 
       $term = get_term_by('slug', get_query_var('term'), 'city');
       if((int)$term->parent): ?>
-        <?php 
-          $parent_term = get_term_by( 'id', $term->parent, 'city' );  
-        ?>
+        <?php $parent_term = get_term_by( 'id', $term->parent, 'city' ); ?>
         <?php echo $parent_term->name; ?>: <?php single_term_title(); ?>
       <?php else: ?>
         <?php single_term_title(); ?>
