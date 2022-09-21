@@ -79,7 +79,7 @@
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Міста", "treba-wp"); ?></div>
   <div>
     <?php 
-    $categories = get_terms(array( 'taxonomy' => 'city' ));
+    $categories = get_terms(array( 'taxonomy' => 'city', 'parent' => 0 ));
     foreach($categories as $category): ?>
       <div class="relative text-lg mb-2">
         <a href="<?php echo get_term_link($category->term_id, 'city') ?>" class="absolute-link"></a>

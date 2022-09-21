@@ -4,7 +4,18 @@ $current_cat_id = get_queried_object_id();
 
 <?php get_header(); ?>
   <div class="container py-8 xl:py-12">
-    <h1 class="text-3xl xl:text-4xl mb-12"><?php single_term_title(); ?></h1>
+    <h1 class="text-3xl xl:text-4xl mb-12">
+      <?php 
+      $term = get_term_by('slug', get_query_var('term'), 'city');
+      if((int)$term->parent): ?>
+        <?php 
+          $parent_term = get_term_by( 'id', $term->parent, 'city' );  
+        ?>
+        <?php echo $parent_term->name; ?>: <?php single_term_title(); ?>
+      <?php else: ?>
+        <?php single_term_title(); ?>
+      <?php endif; ?>
+    </h1>
     <div>
       <?php the_archive_description( '<div class="content">', '</div>' ); ?>
     </div>
