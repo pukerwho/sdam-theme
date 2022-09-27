@@ -20,7 +20,13 @@ function register_custom_taxonomy() {
     'hierarchical' => true,
     'query_var' => true,
     'has_archive' => true,
-    'sort' => true,
+    'sort' => true, 
+    
+    'rewrite' => array(
+      'slug' => 'city',
+      'with_front'    => true,
+      'hierarchical' => true,
+    ),
   );
 
   register_taxonomy( 'city', array( 'places' ), $product_category_args );
