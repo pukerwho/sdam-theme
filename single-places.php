@@ -9,7 +9,7 @@
   <div class="container py-8 xl:py-12">
     
     <div class="flex flex-wrap xl:-mx-10">
-      <div class="w-full xl:w-2/3 xl:px-10">
+      <div class="w-full xl:w-2/3 xl:px-10 mb-10 lg:mb-0">
         <div class="lg:shadow-xl lg:rounded-xl lg:border border-gray-200 lg:p-8 mb-16">
           <div class="mb-4">
             <?php 
