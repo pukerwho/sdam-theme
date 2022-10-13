@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.1.7 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -844,8 +844,8 @@ video {
   height: 1.5rem;
 }
 
-.h-64 {
-  height: 16rem;
+.h-72 {
+  height: 18rem;
 }
 
 .h-\[1px\] {
@@ -894,10 +894,6 @@ video {
 
 .h-\[185px\] {
   height: 185px;
-}
-
-.h-72 {
-  height: 18rem;
 }
 
 .min-h-\[60px\] {
@@ -1949,9 +1945,28 @@ body {
     width: 66.666667%;
   }
 
+  .lg\:rounded-xl {
+    border-radius: 0.75rem;
+  }
+
+  .lg\:border {
+    border-width: 1px;
+  }
+
+  .lg\:p-8 {
+    padding: 2rem;
+  }
+
   .lg\:px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+
+  .lg\:shadow-xl {
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+    -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 }
 
