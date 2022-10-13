@@ -10,7 +10,7 @@
     
     <div class="flex flex-wrap xl:-mx-10">
       <div class="w-full xl:w-2/3 xl:px-10">
-        <div class="shadow-xl rounded-xl border border-gray-200 p-8 mb-16">
+        <div class="lg:shadow-xl lg:rounded-xl lg:border border-gray-200 lg:p-8 mb-16">
           <div class="mb-4">
             <?php 
             $city_terms = wp_get_post_terms(  get_the_ID() , 'city', array( 'parent' => 0 ) );
