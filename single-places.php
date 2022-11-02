@@ -280,17 +280,54 @@
           </div>
           <h2 class="text-2xl font-bold mb-4"><span class="border-b-4 border-indigo-300"><?php _e("Галерея", "treba-wp"); ?></span></h2>
           <div class="mb-6">
-            <div class="flex flex-wrap items-center -mx-3 mb-4">
+            <div class="flex flex-wrap items-center -mx-2 mb-4">
+              <?php if (get_locale() === 'uk'): ?>
+                <!-- FOR UA --> 
+                <?php 
+                  $post_uk_id = pll_get_post( $currentId, "uk" );
+                  $post_ru_id = pll_get_post( $currentId, "ru" );
+                  $attimages = get_attached_media('image', $post_uk_id);
+                  $array_images_ru = [];
+                  foreach ($attimages as $image): 
+                ?>
+                  <?php 
+                    $medium_image_ru = wp_get_attachment_image_src($image->ID, 'medium')[0];
+                    array_push($array_images_ru, $medium_image_ru);
+                  ?>
+                  <div class="w-1/2 lg:w-1/4 px-2 mb-4">
+                    <a href="<?php echo wp_get_attachment_image_src($image->ID, 'large')[0]; ?>" data-lightbox="product-gallery" data-title="<?php the_title(); ?>">
+                      <img src="<?php echo wp_get_attachment_image_src($image->ID, 'medium')[0]; ?>" loading="lazy" class="w-full h-24 lg:h-32 object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
+                    </a>
+                  </div>
+                <?php endforeach; ?>
+                <?php if ( !metadata_exists( 'places', $post_ru_id, 'crb_array_images' ) ) {
+                  // echo '1';
+                  $array_images_ru = json_encode($array_images_ru);
+                  add_post_meta( $post_ru_id, '_crb_array_images', $array_images_ru);
+                } else {
+                  // echo '2';
+                  $array_images_ru = json_encode($array_images_ru);
+                  update_post_meta( $post_ru_id, '_crb_array_images', $array_images_ru);
+                } ?>
+                <!-- END FOR UA -->
+              <?php endif; ?>
+
+              <?php if (get_locale() === 'ru_RU'): ?>
+              <!-- FOR RU -->
               <?php 
-                $attimages = get_attached_media('image', $currentId);
-                foreach ($attimages as $image): 
+                $images_array = carbon_get_the_post_meta('crb_array_images'); 
+                $images_array = json_decode($images_array, true);
+                foreach ($images_array as $img_ru): 
               ?>
-              <div class="w-1/2 lg:w-1/4 px-3 mb-2">
-                <a href="<?php echo wp_get_attachment_image_src($image->ID, 'large')[0]; ?>" data-lightbox="product-gallery" data-title="<?php the_title(); ?>">
-                  <img src="<?php echo wp_get_attachment_image_src($image->ID, 'medium')[0]; ?>" loading="lazy" class="w-full h-24 lg:h-32 object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
-                </a>
-              </div>
+                <div class="w-1/2 lg:w-1/4 px-2 mb-4">
+                  <a href="<?php echo $img_ru; ?>" data-lightbox="product-gallery" data-title="<?php the_title(); ?>">
+                    <img src="<?php echo $img_ru; ?>" loading="lazy" class="w-full h-24 lg:h-32 object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
+                  </a>
+                </div>
               <?php endforeach; ?>
+              <!-- END FOR RU --> 
+              <?php endif; ?>
+
             </div>
           </div>
           <div class="mb-6">
