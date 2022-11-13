@@ -43,7 +43,6 @@
     </div>
   </div>
   
-  
   <div class="border-t pt-4">
     <div class="flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between">
       <div class="mr-2">
