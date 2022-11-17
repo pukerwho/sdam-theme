@@ -61,8 +61,7 @@
       $popular_places = new WP_Query( array( 
         'post_type' => 'places', 
         'posts_per_page' => 5,
-        'meta_key' => 'post_count',
-        'orderby' => 'meta_value_num',
+        
       ) );
       if ($popular_places->have_posts()) : while ($popular_places->have_posts()) : $popular_places->the_post(); 
     ?>
