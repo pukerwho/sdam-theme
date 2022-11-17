@@ -12,17 +12,17 @@
   </div>
   <div class="text-2xl font-bold mb-4"><?php the_title(); ?></div>
   <div class="flex flex-col lg:flex-row lg:-mx-2 mb-4">
-    <div class="w-full lg:w-1/2 lg:px-2 mb-4 lg:mb-0">
-      <?php 
-        $attimages = get_attached_media('image', $currentId);
-        foreach (array_slice($attimages, 0, 1) as $image): 
-      ?>
+    <?php 
+      $medium_thumb = get_the_post_thumbnail_url($currentId, 'medium');
+      if (!$medium_thumb) { $class_hidden = "hidden"; }
+    ?>
+    <div class="<?php echo $class_hidden; ?> w-full lg:w-1/2 lg:px-2 mb-4 lg:mb-0">
       <div>
-        <img src="<?php echo wp_get_attachment_image_src($image->ID, 'medium')[0]; ?>" loading="lazy" class="w-full h-full object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
+        <img src="<?php echo $medium_thumb; ?>" loading="lazy" class="w-full h-full object-cover bg-custom-gray dark:bg-dark-xl rounded-lg"> 
       </div>
-      <?php endforeach; ?>
+
     </div>
-    <div class="w-full lg:w-1/2 lg:px-2">
+    <div class="w-full lg:w-auto lg:px-2">
       <div class="text-sm content mb-4">
         <?php 
           $content_text = wp_strip_all_tags( get_the_content() );
