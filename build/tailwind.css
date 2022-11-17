@@ -871,6 +871,10 @@ video {
   height: 8px;
 }
 
+.h-24 {
+  height: 6rem;
+}
+
 .h-\[40px\] {
   height: 40px;
 }
@@ -1933,6 +1937,14 @@ body {
 
   .lg\:block {
     display: block;
+  }
+
+  .lg\:h-32 {
+    height: 8rem;
+  }
+
+  .lg\:w-1\/4 {
+    width: 25%;
   }
 
   .lg\:w-1\/2 {

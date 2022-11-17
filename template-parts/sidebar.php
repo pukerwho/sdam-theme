@@ -71,11 +71,12 @@
         <a href="<?php the_permalink(); ?>" class="absolute-link"></a>
         <div class="mr-4">
           <?php 
-            $post_uk_id = pll_get_post( get_the_ID(), "uk" );
-            $url_thumb = get_the_post_thumbnail_url( $post_uk_id, 'thumbnail' );
-          ?>
-          <?php if ($url_thumb): ?>
-          <img src="<?php echo $url_thumb; ?>" loading="lazy" class="w-[40px] min-w-[60px] h-[40px] min-h-[60px] object-cover rounded-lg"> 
+          $post_uk_id = pll_get_post( get_the_ID(), "uk" );
+          $files = get_attached_media('image', $post_uk_id);
+          if ($files): ?> 
+            <?php foreach (array_slice($files,0,1) as $file): ?>
+              <img src="<?php echo wp_get_attachment_image_src($file->ID, 'medium')[0]; ?>" loading="lazy" class="w-[40px] min-w-[60px] h-[40px] min-h-[60px] object-cover rounded-lg"> 
+            <?php endforeach; ?>
           <?php else: ?>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[40px] min-w-[60px] h-[40px] min-h-[60px]">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
