@@ -54,18 +54,16 @@
   </div>
 <?php endif; ?>
 
+
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg rounded border-t-4 border-t-indigo-500 p-4 mb-12">
-  <div class="text-xl uppercase font-bold mb-4"><?php _e("Популярні пропозиції", "treba-wp"); ?></div>
+  <div class="text-xl uppercase font-bold mb-4"><?php _e("Нові записи", "treba-wp"); ?></div>
   <div>
     <?php 
-      $popular_places = new WP_Query( array( 
-        'post_type' => 'places', 
+      $new_posts = new WP_Query( array( 
+        'post_type' => 'post', 
         'posts_per_page' => 5,
-        'meta_key' => 'post_count',
-        'orderby' => 'meta_value_num',
-        'order' => 'DESC'
       ) );
-      if ($popular_places->have_posts()) : while ($popular_places->have_posts()) : $popular_places->the_post(); 
+      if ($new_posts->have_posts()) : while ($new_posts->have_posts()) : $new_posts->the_post(); 
     ?>
       <div class="relative flex items-center mb-6 last:mb-0">
         <a href="<?php the_permalink(); ?>" class="absolute-link"></a>
@@ -80,8 +78,6 @@
     <?php endwhile; endif; wp_reset_postdata(); ?>
   </div>
 </div>
-
-
 
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg  rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Міста", "treba-wp"); ?></div>

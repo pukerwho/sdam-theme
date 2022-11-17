@@ -22,7 +22,7 @@ function crb_post_theme_options() {
   Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'places' )
     ->add_fields( array(
-      // Field::make( 'textarea', 'crb_array_images', 'Images Ru' ),
+      Field::make( 'textarea', 'crb_array_images', 'Images Ru' ),
       Field::make( 'text', 'crb_places_author', 'Хто додав' ),
       Field::make( 'media_gallery', 'crb_places_gallery', 'Галерея' )->set_type( array( 'image' ) ),
       Field::make( 'text', 'crb_places_address', 'Адрес' ),
