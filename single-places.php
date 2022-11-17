@@ -1,14 +1,8 @@
 <?php get_header(); ?>
-
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <?php 
-    $currentId = get_the_ID();
-    $countNumber = tutCount($currentId);
-  ?>
-
   <div class="container py-8 xl:py-12">
-    
     <div class="flex flex-wrap xl:-mx-10">
+      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <?php $currentId = get_the_ID(); $countNumber = tutCount($currentId); ?>
       <div class="w-full xl:w-2/3 xl:px-10 mb-10 lg:mb-0">
         <div class="lg:shadow-xl lg:rounded-xl lg:border border-gray-200 lg:p-8 mb-16">
           <div class="mb-4">
@@ -349,11 +343,12 @@
           </div>
         </div>    
       </div>
+      <?php endwhile; endif; wp_reset_postdata(); ?>
       <div class="w-full xl:w-1/3 xl:px-10">
         <?php get_template_part('template-parts/sidebar'); ?>
       </div>
     </div>
   </div>
 
-<?php endwhile; endif; wp_reset_postdata(); ?>
+
 <?php get_footer(); ?>
