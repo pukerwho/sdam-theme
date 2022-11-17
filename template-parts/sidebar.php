@@ -74,7 +74,7 @@
         </div>
         <div>
           <div class="mb-1"><?php the_title(); ?></div>
-          
+          <div class="text-sm opacity-75"><?php _e("Переглядів", "treba-wp"); ?>: <?php echo get_post_meta( get_the_ID(), 'post_count', true ); ?></div>
         </div>
       </div>
     <?php endwhile; endif; wp_reset_postdata(); ?>
@@ -98,7 +98,7 @@
         </div>
         <div>
           <div class="mb-1"><?php the_title(); ?></div>
-          
+          <div class="text-sm opacity-75"><?php _e("Переглядів", "treba-wp"); ?>: <?php echo get_post_meta( get_the_ID(), 'post_count', true ); ?></div>
         </div>
       </div>
     <?php endwhile; endif; wp_reset_postdata(); ?>

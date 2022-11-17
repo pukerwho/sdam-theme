@@ -71,7 +71,7 @@
         <div>
           <div class="text-2xl mb-6"><span class="border-b-4 border-indigo-300 font-bold"><?php _e("Коментарі", "treba-wp"); ?></span></div>
           <div class="content">
-            <?php comments_template(); ?>
+            
           </div>
         </div>    
       </div>
