@@ -55,13 +55,15 @@
 <?php endif; ?>
 
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg rounded border-t-4 border-t-indigo-500 p-4 mb-12">
-  <div class="text-xl uppercase font-bold mb-4"><?php _e("Популярні пропозиції", "treba-wp"); ?></div>
+  <div class="text-xl uppercase font-bold mb-4"><?php _e("Зараз переглядають", "treba-wp"); ?></div>
   <div>
     <?php 
       $popular_places = new WP_Query( array( 
         'post_type' => 'places', 
         'posts_per_page' => 5,
-        
+        'orderby'        => 'rand',
+        // 'meta_key' => 'post_count',
+        // 'orderby' => 'meta_value_num',
       ) );
       if ($popular_places->have_posts()) : while ($popular_places->have_posts()) : $popular_places->the_post(); 
     ?>
@@ -72,7 +74,13 @@
             $post_uk_id = pll_get_post( get_the_ID(), "uk" );
             $url_thumb = get_the_post_thumbnail_url( $post_uk_id, 'thumbnail' );
           ?>
+          <?php if ($url_thumb): ?>
           <img src="<?php echo $url_thumb; ?>" loading="lazy" class="w-[40px] min-w-[60px] h-[40px] min-h-[60px] object-cover rounded-lg"> 
+          <?php else: ?>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[40px] min-w-[60px] h-[40px] min-h-[60px]">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg>
+          <?php endif; ?>
         </div>
         <div>
           <div class="mb-1"><?php the_title(); ?></div>
