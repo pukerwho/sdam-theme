@@ -70,7 +70,7 @@
       <div class="relative flex items-center mb-6 last:mb-0">
         <a href="<?php the_permalink(); ?>" class="absolute-link"></a>
         <div class="mr-4">
-          <img src="<?php echo get_the_post_thumbnail_url(); ?>" loading="lazy" class="w-[40px] min-w-[60px] h-[40px] min-h-[60px] object-cover rounded-lg"> 
+          
         </div>
         <div>
           <div class="mb-1"><?php the_title(); ?></div>
