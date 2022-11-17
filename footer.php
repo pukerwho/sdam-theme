@@ -14,10 +14,15 @@
         <div class="w-full xl:w-9/12 mb-4">
           <?php _e("Всі можливі пропозиціі по довгостроковій оренді квартир в Україні зібрані на одном сайті.", "treba-wp"); ?>
         </div>
-        <div>
+        <div class="flex items-center">
           <a href="https://priazovka.com/">
             <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/priazovka.jpg" width="20">
           </a>
+          <?php if (is_home()): ?>
+            <a href="https://webgolovolomki.com/" class="pl-2">
+              <img src="https://sdamkvartiry.com/wp-content/uploads/2022/11/web-g.jpg" width="20">
+            </a>
+          <?php endif; ?>
         </div>
       </div>
       <div class="w-full xl:w-1/4 xl:px-4 mb-6 xl:mb-0">
