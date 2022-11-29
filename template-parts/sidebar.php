@@ -70,6 +70,7 @@
       <div class="relative flex items-center mb-6 last:mb-0">
         <a href="<?php the_permalink(); ?>" class="absolute-link"></a>
         <div class="mr-4">
+          <!-- PLACE THUMB -->
           <?php if (get_locale() === 'uk'): ?>
             <?php 
             $files = get_attached_media('image', get_the_ID());

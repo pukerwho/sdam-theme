@@ -32,7 +32,15 @@
             <h1 class="text-2xl xl:text-3xl mb-6" itemprop="headline"><?php the_title(); ?></h1>
             <div class="bg-gray-200 dark:bg-gray-700 rounded-lg px-6 py-4 mb-4">
               <div class="mb-2">
-                <div><?php _e("Автор", "treba-wp"); ?>: <?php echo get_the_author(); ?></div>
+                <div>
+                  <?php _e("Автор", "treba-wp"); ?>: 
+                  <?php if (carbon_get_the_post_meta('crb_post_author')) {
+                    echo carbon_get_the_post_meta('crb_post_author');
+                  } else {
+                    echo get_the_author();
+                  }
+                  ?>
+                </div>
               </div>
               <div class="flex flex-wrap -mx-2">
                 <div class="flex items-center text-sm opacity-75 px-2">
