@@ -383,3 +383,12 @@ a:hover {
   width: 0;
   background: transparent;
 }
+
+.single-subjects-inner a {
+  text-transform: lowercase;
+}
+
+.single-subjects-inner li::first-letter {
+  content: "";
+  text-transform: uppercase;
+}

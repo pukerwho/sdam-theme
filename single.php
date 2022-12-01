@@ -76,7 +76,7 @@
             </div>
             <div class="content" itemprop="articleBody">
               <div class="single-subjects mb-5">
-                <div class="text-2xl font-bold mb-3">
+                <div class="text-2xl font-bold uppercase mb-3">
                   <?php _e('Зміст','treba-wp'); ?>:
                 </div>
                 <div class="single-subjects-inner"></div>

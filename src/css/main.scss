@@ -257,3 +257,15 @@ a {
   width: 0;
   background: transparent;
 }
+
+.single-subjects-inner {
+  a {
+    text-transform: lowercase;
+  }
+  li {
+    &::first-letter {
+      content: "";
+      text-transform: uppercase;
+    }
+  }
+}
