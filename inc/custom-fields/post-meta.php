@@ -8,8 +8,10 @@ function crb_post_theme_options() {
 	Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'post' )
     ->add_fields( array(
+      Field::make( 'html', 'crb_heading_author', __( 'INFO Heading' ) )->set_html( sprintf( '<b>АВТОР</b>' ) ),
       Field::make( 'text', 'crb_post_author', 'Автор' ),
-      // Field::make( 'text', 'crb_post_timetoread', 'Time to read'),
+      Field::make( 'text', 'crb_post_author_instagram', 'Інстаграм автора' ),
+      Field::make( 'text', 'crb_post_author_facebook', 'Фейсбук автора' ),
   ) );
   Container::make( 'post_meta', 'More' )
     ->where( 'post_type', '=', 'products' )

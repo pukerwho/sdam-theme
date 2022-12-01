@@ -32,14 +32,23 @@
             <h1 class="text-2xl xl:text-3xl mb-6" itemprop="headline"><?php the_title(); ?></h1>
             <div class="bg-gray-200 dark:bg-gray-700 rounded-lg px-6 py-4 mb-4">
               <div class="mb-2">
-                <div>
-                  <?php _e("Автор", "treba-wp"); ?>: 
-                  <?php if (carbon_get_the_post_meta('crb_post_author')) {
-                    echo carbon_get_the_post_meta('crb_post_author');
-                  } else {
-                    echo get_the_author();
-                  }
-                  ?>
+                <div><span class="font-medium"><?php _e("Автор", "treba-wp"); ?></span>: 
+                  <?php if (carbon_get_the_post_meta('crb_post_author')): ?>
+                    <span class="italic"><?php echo carbon_get_the_post_meta('crb_post_author'); ?></span>
+                    <div class="flex items-center text-sm">
+                      <!-- instagram -->
+                      <?php if (carbon_get_the_post_meta('crb_post_author_instagram')): ?>
+                        <div class="italic pb-2 pr-3"><a href="<?php echo carbon_get_the_post_meta('crb_post_author_instagram'); ?>" class="text-indigo-500">Instagram</a></div>
+                      <?php endif; ?>
+                      <!-- facebook --> 
+                      <?php if (carbon_get_the_post_meta('crb_post_author_facebook')): ?>
+                        <div class="italic pb-2"><a href="<?php echo carbon_get_the_post_meta('crb_post_author_facebook'); ?>" class="text-indigo-500">Facebook</a></div>
+                      <?php endif; ?>
+                    </div>
+
+                  <?php else: ?>
+                    <?php echo get_the_author(); ?>
+                  <?php endif; ?>
                 </div>
               </div>
               <div class="flex flex-wrap -mx-2">
@@ -66,6 +75,12 @@
               <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="w-full h-full object-cover rounded-lg" itemprop="image">
             </div>
             <div class="content" itemprop="articleBody">
+              <div class="single-subjects mb-5">
+                <div class="text-2xl font-bold mb-3">
+                  <?php _e('Зміст','treba-wp'); ?>:
+                </div>
+                <div class="single-subjects-inner"></div>
+              </div>
               <?php the_content(); ?>
             </div>
           </article> 
