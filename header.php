@@ -122,7 +122,7 @@ if (is_home()) {
     <?php endif; ?>
   
   <?php else: ?>
-    <meta property="og:image" content="<?php echo get_stylesheet_directories_uri(); ?>/images/sdam-thumb.png">
+    <meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/images/sdam-thumb.png">
   <?php endif; ?>
 
 	<?php wp_head(); ?>
