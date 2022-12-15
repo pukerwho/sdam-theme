@@ -75,3 +75,6 @@ body {
 .content h4 {
   @apply text-xl mb-4 mt-6;
 }
+.content .wp-block-image {
+  @apply mb-6;
+}

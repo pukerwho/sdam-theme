@@ -1808,6 +1808,10 @@ body {
   line-height: 1.75rem;
 }
 
+.content .wp-block-image {
+  margin-bottom: 1.5rem;
+}
+
 .last\:mb-0:last-child {
   margin-bottom: 0px;
 }
