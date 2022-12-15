@@ -98,6 +98,33 @@ if (is_home()) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.ico"/>
+
+  <?php if (is_singular()): ?>
+    <meta property="og:title" content="<?php echo $current_title; ?>" />
+    <?php if ($current_description): ?>
+      <meta property="og:description" content="<?php echo $current_description; ?>" />
+    <?php else: ?>
+      <?php 
+        $content_text_for_description = wp_strip_all_tags( get_the_content() );
+      ?>
+      <meta property="og:description" content="<?php echo mb_strimwidth($content_text_for_description, 0, 150, '...'); ?>" />
+    <?php endif; ?>
+    <meta property="og:image" content="<?php echo get_the_post_thumbnail_url(); ?>">
+    <?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
+    <meta property="og:url" content="<?php echo $actual_link; ?>" />
+    <meta property="og:article:published_time" content="<?php echo get_post_time('Y/n/j'); ?>" />
+    <meta property="og:article:article:modified_time" content="<?php echo get_the_modified_time('Y/n/j'); ?>" />
+    
+    <?php if (carbon_get_the_post_meta('crb_post_author')): ?>
+      <meta property="og:article:author" content="<?php echo carbon_get_the_post_meta('crb_post_author'); ?>" />
+    <?php else: ?>
+      <meta property="og:article:author" content="<?php echo get_the_author(); ?>" />
+    <?php endif; ?>
+  
+  <?php else: ?>
+    <meta property="og:image" content="<?php echo get_stylesheet_directories_uri(); ?>/images/sdam-thumb.png">
+  <?php endif; ?>
+
 	<?php wp_head(); ?>
 	<?php echo carbon_get_theme_option('crb_google_analytics'); ?>
 </head>
