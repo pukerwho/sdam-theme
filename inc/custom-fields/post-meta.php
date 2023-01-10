@@ -10,7 +10,7 @@ function crb_post_theme_options() {
     ->add_fields( array(
       Field::make( 'html', 'crb_heading_seo', __( 'SEO Heading' ) )->set_html( sprintf( '<b>SEO</b>' ) ),
       Field::make( 'text', 'crb_post_title', 'Title' ),
-      Field::make( 'textarea', 'crb_post_description', 'Description' ),
+      Field::make( 'textarea', 'crb_post_description', 'Description' )->set_attribute( 'maxLength', '144' ),
       Field::make( 'text', 'crb_post_keywords', 'Keywords' ),
       Field::make( 'html', 'crb_heading_author', __( 'INFO Heading' ) )->set_html( sprintf( '<b>АВТОР</b>' ) ),
       Field::make( 'text', 'crb_post_author', 'Автор' ),
