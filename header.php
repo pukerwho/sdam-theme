@@ -2,8 +2,17 @@
 
 $current_title = wp_get_document_title();
 
-if (is_singular( "post" )) {
-	$current_title = get_the_title();
+// FOR POSTs
+if ( is_singular( 'post' ) ) {
+  $current_title = get_the_title();
+  $post_title = carbon_get_the_post_meta('crb_post_title');
+  $post_description = carbon_get_the_post_meta('crb_post_description');
+  if ($post_title) {
+    $current_title = $post_title;
+  }
+  if ($post_description) {
+    $current_description = $post_description;
+  }
 }
 
 if (is_page()) {
