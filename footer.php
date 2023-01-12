@@ -28,7 +28,7 @@
       <div class="w-full xl:w-1/4 xl:px-4 mb-6 xl:mb-0">
         <div class="text-xl font-bold mb-2"><?php _e("Навігація", "treba-wp"); ?></div>
         <?php wp_nav_menu([
-          'theme_location' => 'header',
+          'theme_location' => 'footer',
           'container' => 'div',
           'menu_class' => 'flex flex-col'
         ]); ?> 
