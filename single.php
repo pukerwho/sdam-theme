@@ -119,7 +119,7 @@
               <div class="relative flex mb-4 last:mb-0">
                 <div class="mr-2"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium') ?>" alt="" loading="lazy" class="w-[50px] h-[50px] min-h-[50px] min-w-[50px] object-cover"></div>
                 <div>
-                  <div class="text-lg"><?php the_title(); ?></div>
+                  <div class="text-lg"><a href="<?php the_permalink(); ?>" class="hover:text-indigo-500"><?php the_title(); ?></a></div>
                   <div class="text-sm opacity-75"><?php _e("Переглядів", "treba-wp"); ?>: <?php echo get_post_meta( get_the_ID(), 'post_count', true ); ?></div>
                 </div>
               </div>
