@@ -117,7 +117,7 @@
             ) );
             if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
               <div class="relative flex mb-4 last:mb-0">
-                <div class="mr-2"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium') ?>" alt="" loading="lazy" width="35" height="35"></div>
+                <div class="mr-2"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium') ?>" alt="" loading="lazy" class="w-[50px] h-[50px] min-h-[50px] min-w-[50px] object-cover"></div>
                 <div>
                   <div class="text-lg"><?php the_title(); ?></div>
                   <div class="text-sm opacity-75"><?php _e("Переглядів", "treba-wp"); ?>: <?php echo get_post_meta( get_the_ID(), 'post_count', true ); ?></div>
