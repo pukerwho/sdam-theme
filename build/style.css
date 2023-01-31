@@ -1,6 +1,7 @@
 /*!******************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/css/main.scss ***!
   \******************************************************************************************************************************************************/
+@charset "UTF-8";
 .header .mainmenu ul {
   margin: 0 -15px;
 }
@@ -112,6 +113,20 @@
   -webkit-transform: translateY(-50%) translateX(-100%);
   -ms-transform: translateY(-50%) translateX(-100%);
   transform: translateY(-50%) translateX(-100%);
+}
+
+.pagination .page-numbers.next:before {
+  content: "⮕";
+  color: #6466f1;
+}
+
+.theme-pagination .page-numbers.prev:before {
+  content: "⬅";
+  color: #6466f1;
+}
+
+.pagination .page-numbers:hover:before {
+  color: white;
 }
 
 .home .swiper-cases {

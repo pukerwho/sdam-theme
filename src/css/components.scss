@@ -29,6 +29,19 @@
   }
 }
 
+.pagination .page-numbers.next:before {
+  content: "⮕";
+  color: #6466f1;
+}
+
+.theme-pagination .page-numbers.prev:before {
+  content: "⬅";
+  color: #6466f1;
+}
+.pagination .page-numbers:hover:before {
+  color: white;
+}
+
 .home .swiper-cases {
   padding-right: 10%;
 }

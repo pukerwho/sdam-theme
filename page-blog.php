@@ -18,7 +18,7 @@ Template Name: БЛОГ
             'post_type' => 'post',
             'orderby' => 'date',
             'paged' => $current,
-            'posts_per_page' => 10,
+            'posts_per_page' => 1,
           ));
           if ($blogs->have_posts()) : while ($blogs->have_posts()) : $blogs->the_post(); ?>
             <div class="mb-8">
@@ -26,7 +26,7 @@ Template Name: БЛОГ
             </div>
           <?php endwhile; endif; wp_reset_postdata(); ?>
         </div>
-        <div>
+        <div class="pagination flex justify-center items-center flex-wrap">
           <?php 
             $big = 9999999991; // уникальное число
             echo paginate_links( array(
