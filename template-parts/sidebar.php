@@ -54,7 +54,7 @@
   </div>
 <?php endif; ?>
 
-<?php if ( !is_singular('post') ): ?>
+<?php if ( !is_singular('post') && ( !is_category() ) ): ?>
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Зараз переглядають", "treba-wp"); ?></div>
   <div>
@@ -149,7 +149,7 @@
   </div>
 </div>
 
-<?php if ( !is_tax( 'city' ) && ( !is_singular('post') ) ): ?>
+<?php if ( !is_tax( 'city' ) && ( !is_singular('post') ) && ( !is_category() ) ): ?>
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg  rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Популярні райони", "treba-wp"); ?></div>
   <div>
