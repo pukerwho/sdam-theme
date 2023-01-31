@@ -18,7 +18,7 @@ Template Name: БЛОГ
             'post_type' => 'post',
             'orderby' => 'date',
             'paged' => $current,
-            'posts_per_page' => 1,
+            'posts_per_page' => 10,
           ));
           if ($blogs->have_posts()) : while ($blogs->have_posts()) : $blogs->the_post(); ?>
             <div class="mb-8">
