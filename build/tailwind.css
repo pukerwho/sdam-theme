@@ -1789,9 +1789,9 @@ body {
 
 .pagination .page-numbers.current {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: rgb(98 102 240 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(11 11 15 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .content a {
