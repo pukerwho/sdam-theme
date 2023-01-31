@@ -44,6 +44,7 @@ Template Name: БЛОГ
     <div class="w-full xl:w-1/3 xl:px-10">
       <?php get_template_part('template-parts/sidebar'); ?>
     </div>
+  </div>
 </div>
 
 <?php get_footer(); ?>
