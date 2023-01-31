@@ -3,7 +3,15 @@
     
     <div class="flex flex-wrap xl:-mx-10">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-      <?php $currentId = get_the_ID(); $countNumber = tutCount($currentId); ?>
+      <?php 
+        $currentId = get_the_ID(); 
+        $countNumber = tutCount($currentId); 
+        $post_categories = get_the_terms( $currentId, 'category' );
+        foreach (array_slice($post_categories, 0, 1) as $post_category) {
+          $category_name = $post_category->name;
+          $category_id = $post_category->term_id;
+        }
+      ?>
       <div class="w-full xl:w-2/3 xl:px-10 mb-10 lg:mb-0">
         <div class="lg:shadow-xl lg:rounded-xl lg:border border-gray-200 lg:p-8 mb-16">
           <!-- Хлебные крошки -->
@@ -52,6 +60,9 @@
                 </div>
               </div>
               <div class="flex flex-wrap -mx-2">
+                <div class="text-sm opacity-75 px-2">
+                  <?php _e("Категорія", "treba-wp"); ?>: <a href="<?php echo get_term_link($category_id, 'category') ?>" class="text-indigo-500"><?php echo $category_name; ?></a>;
+                </div>
                 <div class="flex items-center text-sm opacity-75 px-2">
                   <div class="mr-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -85,6 +96,36 @@
             </div>
           </article> 
         </div>  
+        <div class="lg:shadow-xl lg:rounded-xl lg:border border-gray-200 lg:p-8 mb-16">
+          <div class="text-2xl mb-6"><?php _e("Схожі записи", "treba-wp"); ?></div>
+          <div>
+            <?php 
+              $current_id = get_the_ID();
+              $custom_query = new WP_Query( array( 
+              'post_type' => 'post', 
+              'posts_per_page' => 5,
+              'post__not_in' => array($current_id),
+              'tax_query' => array(
+                array(
+                  'taxonomy' => 'category',
+                  'terms' => $category_id,
+                  'field' => 'term_id',
+                  'include_children' => true,
+                  'operator' => 'IN'
+                )
+              ),
+            ) );
+            if ($custom_query->have_posts()) : while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
+              <div class="relative flex mb-4 last:mb-0">
+                <div class="mr-2"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium') ?>" alt="" loading="lazy" width="35" height="35"></div>
+                <div>
+                  <div class="text-lg"><?php the_title(); ?></div>
+                  <div class="text-sm opacity-75"><?php _e("Переглядів", "treba-wp"); ?>: <?php echo get_post_meta( get_the_ID(), 'post_count', true ); ?></div>
+                </div>
+              </div>
+            <?php endwhile; endif; ?>
+          </div>
+        </div>
         <div>
           <div class="text-2xl mb-6"><span class="border-b-4 border-indigo-300 font-bold"><?php _e("Коментарі", "treba-wp"); ?></span></div>
           <div class="content">

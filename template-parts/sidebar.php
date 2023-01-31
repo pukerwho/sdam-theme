@@ -54,6 +54,7 @@
   </div>
 <?php endif; ?>
 
+<?php if ( !is_singular('post') ): ?>
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Зараз переглядають", "treba-wp"); ?></div>
   <div>
@@ -108,6 +109,7 @@
     <?php endwhile; endif; wp_reset_postdata(); ?>
   </div>
 </div>
+<?php endif; ?>
 
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Нові записи", "treba-wp"); ?></div>
@@ -147,7 +149,7 @@
   </div>
 </div>
 
-<?php if ( !is_tax( 'city' ) ): ?>
+<?php if ( !is_tax( 'city' ) && ( !is_singular('post') ) ): ?>
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg  rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Популярні райони", "treba-wp"); ?></div>
   <div>
