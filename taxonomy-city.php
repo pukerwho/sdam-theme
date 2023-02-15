@@ -56,6 +56,14 @@ $current_cat_id = get_queried_object_id();
             )); 
           ?>
         </div>
+
+        <?php 
+        $seoText = carbon_get_term_meta($current_cat_id, 'crb_city_seo_text');
+        if ($seoText && $current_page < 2): ?>
+          <div class="content bg-gray-100 dark:bg-gray-600 dark:text-gray-200 rounded-lg shadow-lg border-2 border-indigo-300 px-4 lg:px-8 py-4 lg:py-6 mt-12">
+            <?php echo apply_filters( 'the_content', $seoText  ); ?>
+          </div>
+        <?php endif; ?>
       </div>
       <div class="w-full xl:w-1/3 xl:px-10">
         <?php get_template_part('template-parts/sidebar'); ?>

@@ -24,6 +24,7 @@ function crb_term_options() {
           'taxonomy' => 'district',
         )
       ) ),
+    Field::make( 'rich_text', 'crb_city_seo_text', 'SE-O Текст' ),
   ));
 
   Container::make( 'term_meta', __( 'City Options', 'crb' ) )
