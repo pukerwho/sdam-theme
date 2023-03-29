@@ -113,13 +113,13 @@ $current_posts = get_posts(array(
         </div>
         <div>
           <h2 class="text-2xl lg:text-3xl uppercase mb-6">
-            <?php _e('Ціни на квартири', 'restx'); ?>
+            <?php _e('Ціни на квартири', 'treba-wp'); ?>
           </h2>
           <table class="w-full border dark:border-gray-500 bg-gray-100 dark:bg-gray-700 table-auto mb-6">
             <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-500 uppercase">
               <tr>
-                <th class="text-left whitespace-nowrap px-2 py-3"><?php _e('Квартира', 'restx'); ?></th>
-                <th class="text-left whitespace-nowrap px-2 py-3"><?php _e('Ціна', 'restx'); ?></th>
+                <th class="text-left whitespace-nowrap px-2 py-3"><?php _e('Квартира', 'treba-wp'); ?></th>
+                <th class="text-left whitespace-nowrap px-2 py-3"><?php _e('Ціна', 'treba-wp'); ?></th>
               </tr>
             </thead>
             <tbody>
