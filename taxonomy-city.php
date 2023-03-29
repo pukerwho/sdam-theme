@@ -50,31 +50,31 @@ $current_posts = get_posts(array(
     <div class="flex flex-wrap xl:-mx-10">
       <div class="w-full xl:w-2/3 xl:px-10 mb-20 xl:mb-0">
         <?php if(!(int)$term->parent): ?>
-        <table class="w-full border bg-gray-100 table-auto mb-6">
+        <table class="w-full border dark:border-gray-500 bg-gray-100 dark:bg-gray-700 table-auto mb-6">
           <tbody>
-            <tr class="border-b border-gray-300">
+            <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">📒 <?php _e("Кількість оголошень", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3"><?php echo $query->post_count; ?></td>
             </tr>
-            <tr class="border-b border-gray-300">
+            <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">⬇️ <?php _e("Найдешевша квартира", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3">
                 <?php $get_min_price = get_city_min_price($query); echo $get_min_price; ?> <?php _e("грн/міс", "treba-wp"); ?>
               </td>
             </tr>
-            <tr class="border-b border-gray-300">
+            <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">⬆️ <?php _e("Найдорожча квартира", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3">
                 <?php $get_max_price = get_city_max_price($query); echo $get_max_price; ?> <?php _e("грн/міс", "treba-wp"); ?>
               </td>
             </tr>
-            <tr class="border-b border-gray-300">
+            <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">💲 <?php _e("Середня вартість", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3">
                 <?php $avarege_price = ($get_max_price + $get_min_price)/2; echo $avarege_price; ?> <?php _e("грн/міс", "treba-wp"); ?>
               </td>
             </tr>
-            <tr class="border-b border-gray-300">
+            <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">🕒 <?php _e("Інформація оновлена", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3"><?php echo date('d.m.Y',strtotime("-1 days")); ?></td>
             </tr>
@@ -88,7 +88,7 @@ $current_posts = get_posts(array(
               Аренда квартиры в г.<?php single_term_title(); ?> ⏩ Снять квартиру <?php single_term_title(); ?> ⭐ Большой выбор, актуальные цены. 【Долгосрочная аренда квартир】<?php single_term_title(); ?>.
             <?php endif; ?>
           </div>
-          <div class="text-gray-700 opacity-75"><?php _e("Переглядів", "treba-wp"); ?>: <?php echo termCount($current_cat_id); ?></div>
+          <div class="text-gray-700 dark:text-gray-200 opacity-75"><?php _e("Переглядів", "treba-wp"); ?>: <?php echo termCount($current_cat_id); ?></div>
         </div>
         <?php endif; ?>
         <h2 class="text-2xl lg:text-3xl uppercase mb-6"><?php _e("Оголошення", "treba-wp"); ?>:</h2>
@@ -115,8 +115,8 @@ $current_posts = get_posts(array(
           <h2 class="text-2xl lg:text-3xl uppercase mb-6">
             <?php _e('Ціни на квартири', 'restx'); ?>
           </h2>
-          <table class="w-full border bg-gray-100 table-auto mb-6">
-            <thead class="bg-gray-100 text-gray-700 border border-gray-200 uppercase">
+          <table class="w-full border dark:border-gray-500 bg-gray-100 dark:bg-gray-700 table-auto mb-6">
+            <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-500 uppercase">
               <tr>
                 <th class="text-left whitespace-nowrap px-2 py-3"><?php _e('Квартира', 'restx'); ?></th>
                 <th class="text-left whitespace-nowrap px-2 py-3"><?php _e('Ціна', 'restx'); ?></th>
@@ -124,7 +124,7 @@ $current_posts = get_posts(array(
             </thead>
             <tbody>
               <?php foreach (array_slice($current_posts, 0,5) as $post): ?>
-              <tr class="border-b border-gray-300">
+              <tr class="border-b border-gray-300 dark:border-gray-500">
                 <td class="whitespace-nowrap px-2 py-3"><?php echo $post->post_title; ?></td>
                 <td class="whitespace-nowrap px-2 py-3"><?php echo carbon_get_the_post_meta('crb_places_price'); ?></td>
               </tr>
