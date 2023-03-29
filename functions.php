@@ -31,6 +31,7 @@ add_action( 'after_setup_theme', 'treba_wp_setup' );
 
 include('inc/enqueues.php');
 include('inc/share-social.php');
+include('inc/footer-links.php');
 include('inc/comments-functions.php');
 include('inc/create-custom-posts.php');
 include('inc/create-custom-taxonomy.php');

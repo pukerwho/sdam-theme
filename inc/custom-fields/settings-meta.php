@@ -6,6 +6,9 @@ use Carbon_Fields\Field;
 add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
 function crb_attach_theme_options() {
   Container::make( 'theme_options', __('Treba Settings') )
+  ->add_tab( __('General'), array(
+    Field::make( 'text', 'crb_footer_links_numbers', 'Кількість посилань - * x2' ),
+  ))
   ->add_tab( __('Social'), array(
     Field::make( 'text', 'crb_social_telegram', 'Telegram' ),
     Field::make( 'text', 'crb_social_twitter', 'Twitter' ),
