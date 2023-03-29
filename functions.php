@@ -33,6 +33,7 @@ include('inc/enqueues.php');
 include('inc/share-social.php');
 include('inc/footer-links.php');
 include('inc/comments-functions.php');
+include('inc/post-vote.php');
 include('inc/create-custom-posts.php');
 include('inc/create-custom-taxonomy.php');
 
@@ -92,7 +93,6 @@ add_action( 'admin_enqueue_scripts', 'wpdocs_enqueue_custom_admin_style' );
 
 // Создаем счетчик для записей
 function tutCount($post_id) {
-  
   if ( metadata_exists( 'post', $post_id, 'post_count' ) ) {
     $count_value = get_post_meta( $post_id, 'post_count', true );
     $count_value = $count_value + 1;
@@ -103,8 +103,30 @@ function tutCount($post_id) {
   }
   $post_count = get_post_meta( $post_id, 'post_count', true );
   return $post_count;
-  
 }
+
+// Создаем счетчик для категорій
+function termCount($term_id) {
+  $tr_array_id = array();
+  $tr_ids = pll_get_term_translations($term_id);
+  foreach ($tr_ids as $tr_id) {
+    array_push($tr_array_id, $tr_id);
+  }
+  foreach ($tr_array_id as $id) {
+    if ( metadata_exists( 'term', $id, 'term_count' ) ) {
+      $count_value = get_term_meta( $id, 'term_count', true );
+      $count_value = $count_value + 1;
+      update_term_meta( $id, 'term_count', $count_value );
+    } else {
+      $rand_term_count = mt_rand(50, 144);
+      add_term_meta( $id, 'term_count', $rand_term_count, true);
+    }
+    $term_count = get_term_meta( $id, 'term_count', true );
+  }
+  return $term_count;
+}
+
+
 
 function get_page_url($template_name) {
   $pages = get_posts([
@@ -161,3 +183,37 @@ add_filter('get_the_archive_title', function ($title) {
   }
   return $title;
 });
+
+function get_city_min_price($query) {
+  $posts = $query->posts;
+  $min_value_array = [];
+  foreach($posts as $post) {
+    $post_id = $post->ID;
+    $hotel_min_price = get_post_meta( $post_id, '_crb_places_price', true );
+    if ($hotel_min_price) {
+      $min_price = str_replace([' ', 'грн', 'грн.', '$'], ' ', $hotel_min_price);
+      $min_price = str_replace(' ', '', $min_price);
+      $min_price = (int)$min_price;
+      array_push($min_value_array, $min_price);
+    }
+    
+  }
+  return min($min_value_array);
+}
+
+function get_city_max_price($query) {
+  $posts = $query->posts;
+  $max_value_array = [];
+  foreach($posts as $post) {
+    $post_id = $post->ID;
+    $hotel_max_price = get_post_meta( $post_id, '_crb_places_price', true );
+    if ($hotel_max_price) {
+      $max_price = str_replace([' ', 'грн', 'грн.', '$'], ' ', $hotel_max_price);
+      $max_price = str_replace(' ', '', $max_price);
+      $max_price = (int)$max_price;
+      array_push($max_value_array, $max_price);
+    }
+    
+  }
+  return max($max_value_array);
+}

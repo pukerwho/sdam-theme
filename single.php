@@ -80,6 +80,16 @@
                   </div>
                   <div><?php echo $countNumber; ?>;</div>
                 </div>
+                <div class="flex items-center text-sm opacity-75 px-2">
+                  <div class="mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div class="post-time-read">
+                    <span></span> <?php _e("хв читання", "treba-wp"); ?>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="mb-6">
@@ -95,6 +105,49 @@
               <?php the_content(); ?>
             </div>
           </article> 
+          <div class="my-12">
+            <div class="text-2xl font-bold uppercase text-center mb-6"><?php _e("Оцініть статтю", "treba-wp"); ?></div>
+            <div class="flex justify-center items-center text-md lg:text-lg -mx-2 lg:-mx-4 js-post-vote" data-post-id="<?php echo $currentId; ?>" data-local-translate-id="<?php foreach( $translated_ids as $id) {echo $id;} ?>">
+              <!-- Up -->
+              <div class="w-1/2 lg:w-auto cursor-pointer px-2 lg:px-4 js-vote-item" data-vote-item="meta_up_">
+                <div class="flex justify-center items-center bg-green-100 rounded text-center px-3 lg:px-12 py-2">
+                  <div class="mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+										</svg>
+                  </div>
+                  <div><span class="js-vote-result"><?php echo get_vote_count($currentId, 'meta_up_'); ?></span></div>
+                </div>  
+              </div>
+              <!-- END Up -->
+
+              <!-- Down -->
+              <div class="w-1/2 lg:w-auto cursor-pointer px-2 lg:px-4 js-vote-item" data-vote-item="meta_down_">
+                <div class="flex justify-center items-center bg-red-100 dark:bg-dark-md rounded text-center px-3 lg:px-12 py-2">
+                  <div class="mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.096c.5 0 .905-.405.905-.904 0-.715.211-1.413.608-2.008L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5" />
+                    </svg>
+                  </div>
+                  <div><span class="js-vote-result"><?php echo get_vote_count($currentId, 'meta_down_'); ?></span></div>
+                </div>  
+              </div>
+              <!-- END Down -->
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center mb-3">
+              <div class="mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                </svg>
+              </div>
+              <div class="text-2xl font-bold uppercase">
+                <?php _e("Поширити", "treba-wp"); ?>
+              </div>
+            </div>
+            <div><?php do_action('show_social_share_buttons'); ?></div>
+          </div>
         </div>  
         <div class="lg:shadow-xl lg:rounded-xl lg:border border-gray-200 lg:p-8 mb-16">
           <div class="text-2xl mb-6"><?php _e("Схожі записи", "treba-wp"); ?></div>

@@ -695,14 +695,24 @@ video {
   margin-right: -1.5rem;
 }
 
-.-my-10 {
-  margin-top: -2.5rem;
-  margin-bottom: -2.5rem;
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .-mx-1 {
   margin-left: -0.25rem;
   margin-right: -0.25rem;
+}
+
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.-my-10 {
+  margin-top: -2.5rem;
+  margin-bottom: -2.5rem;
 }
 
 .mb-16 {
@@ -783,6 +793,10 @@ video {
 
 .mt-12 {
   margin-top: 3rem;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
 }
 
 .mb-28 {
@@ -1238,6 +1252,16 @@ video {
   background-color: rgb(254 240 138 / var(--tw-bg-opacity));
 }
 
+.bg-green-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+}
+
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
@@ -1379,6 +1403,11 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .px-10 {
@@ -1547,6 +1576,11 @@ video {
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .opacity-75 {
@@ -1980,6 +2014,11 @@ body {
     margin-right: -0.5rem;
   }
 
+  .lg\:-mx-4 {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
@@ -1992,6 +2031,10 @@ body {
     height: 8rem;
   }
 
+  .lg\:h-6 {
+    height: 1.5rem;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }
@@ -2002,6 +2045,10 @@ body {
 
   .lg\:w-auto {
     width: auto;
+  }
+
+  .lg\:w-6 {
+    width: 1.5rem;
   }
 
   .lg\:w-2\/3 {
@@ -2042,6 +2089,16 @@ body {
     padding: 2rem;
   }
 
+  .lg\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .lg\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -2055,6 +2112,16 @@ body {
   .lg\:px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .lg\:shadow-xl {

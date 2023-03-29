@@ -4,3 +4,5 @@ import "./modals.js";
 import "./tabs.js";
 import "./subjects.js";
 import "./dark-light.js";
+import "./rating.js";
+import "./read-time.js";
