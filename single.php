@@ -5,7 +5,8 @@
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
       <?php 
         $currentId = get_the_ID(); 
-        $countNumber = tutCount($currentId); 
+        $countNumber = tutCount($currentId);
+        $translated_ids = pll_get_post_translations($currentId);
         $post_categories = get_the_terms( $currentId, 'category' );
         foreach (array_slice($post_categories, 0, 1) as $post_category) {
           $category_name = $post_category->name;
