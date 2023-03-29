@@ -1,7 +1,7 @@
 <footer class="bg-gray-700 text-gray-200 rounded-b-xl py-12">
   <div class="container">
     <div class="mb-16">
-      <div class="text-lg font-medium opacity-75 mb-4">🔍 <?php _e("Популярные запросы", "treba-wp"); ?>:</div>
+      <div class="text-lg font-medium opacity-75 mb-4">🔍 <?php _e("Популярні запити", "treba-wp"); ?>:</div>
       <div class="border dark:border-gray-500 shadow-lg rounded-lg">
         <div class="flex flex-wrap lg:-mx-2 px-2 py-2">
           <?php 
