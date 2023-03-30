@@ -50,7 +50,7 @@ $current_posts = get_posts(array(
     <div class="flex flex-wrap xl:-mx-10">
       <div class="w-full xl:w-2/3 xl:px-10 mb-20 xl:mb-0">
         <?php if(!(int)$term->parent): ?>
-        <table class="w-full border dark:border-gray-500 bg-gray-100 dark:bg-gray-700 table-auto mb-6">
+        <table class="hidden w-full border dark:border-gray-500 bg-gray-100 dark:bg-gray-700 table-auto mb-6">
           <tbody>
             <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">📒 <?php _e("Кількість оголошень", "treba-wp"); ?></td>
