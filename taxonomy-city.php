@@ -50,11 +50,11 @@ $current_posts = get_posts(array(
     <div class="flex flex-wrap xl:-mx-10">
       <div class="w-full xl:w-2/3 xl:px-10 mb-20 xl:mb-0">
         <?php if(!(int)$term->parent): ?>
-        <table class="hidden w-full border dark:border-gray-500 bg-gray-100 dark:bg-gray-700 table-auto mb-6">
+        <table class="w-full border dark:border-gray-500 bg-gray-100 dark:bg-gray-700 table-auto mb-6">
           <tbody>
             <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">📒 <?php _e("Кількість оголошень", "treba-wp"); ?></td>
-              <td class="whitespace-nowrap px-2 py-3"><?php echo count($current_posts); ?></td>
+              <td class="whitespace-nowrap px-2 py-3"><?php echo $term->count; ?></td>
             </tr>
             <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">⬇️ <?php _e("Найдешевша квартира", "treba-wp"); ?></td>
@@ -123,12 +123,15 @@ $current_posts = get_posts(array(
               </tr>
             </thead>
             <tbody>
-              <?php foreach (array_slice($current_posts, 0,5) as $post): ?>
-              <tr class="border-b border-gray-300 dark:border-gray-500">
-                <td class="whitespace-nowrap px-2 py-3"><?php echo $post->post_title; ?></td>
-                <td class="whitespace-nowrap px-2 py-3"><?php echo carbon_get_the_post_meta('crb_places_price'); ?></td>
-              </tr>
-              <?php endforeach; ?>
+              <?php 
+               $query->set('posts_per_page', 5);
+               $query->query($query->query_vars);
+              if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+                <tr class="border-b border-gray-300 dark:border-gray-500">
+                  <td class="whitespace-nowrap px-2 py-3"><?php the_title(); ?></td>
+                  <td class="whitespace-nowrap px-2 py-3"><?php echo carbon_get_the_post_meta('crb_places_price'); ?></td>
+                </tr>
+              <?php endwhile; endif; wp_reset_postdata(); ?>
             </tbody>
           </table>
         </div>
