@@ -16,20 +16,6 @@ $query = new WP_Query( array(
     )
   ),
 ) );
-$current_posts = get_posts(array(
-  'post_type' => 'places',
-  'numberposts' => -1,
-  'orderby'     => 'date',
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'city',
-      'terms' => $current_cat_id,
-      'field' => 'term_id',
-      'include_children' => true,
-      'operator' => 'IN'
-    )
-  ),
-));
 ?>
 
 <?php get_header(); ?>
@@ -59,19 +45,19 @@ $current_posts = get_posts(array(
             <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">⬇️ <?php _e("Найдешевша квартира", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3">
-                <?php $get_min_price = get_city_min_price($query); echo $get_min_price; ?> <?php _e("грн/міс", "treba-wp"); ?>
+                 <?php _e("грн/міс", "treba-wp"); ?>
               </td>
             </tr>
             <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">⬆️ <?php _e("Найдорожча квартира", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3">
-                <?php $get_max_price = get_city_max_price($query); echo $get_max_price; ?> <?php _e("грн/міс", "treba-wp"); ?>
+                 <?php _e("грн/міс", "treba-wp"); ?>
               </td>
             </tr>
             <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">💲 <?php _e("Середня вартість", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3">
-                <?php $get_avarege_price = get_city_average_price($query); echo $get_avarege_price; ?> <?php _e("грн/міс", "treba-wp"); ?>
+                 <?php _e("грн/міс", "treba-wp"); ?>
               </td>
             </tr>
             <tr class="border-b border-gray-300 dark:border-gray-500">
