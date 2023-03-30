@@ -217,3 +217,22 @@ function get_city_max_price($query) {
   }
   return max($max_value_array);
 }
+
+function get_city_average_price($query) {
+  $posts = $query->posts;
+  $average_value_array = [];
+  foreach($posts as $post) {
+    $post_id = $post->ID;
+    $hotel_average_price = get_post_meta( $post_id, '_crb_places_price', true );
+    if ($hotel_average_price) {
+      $average_price = str_replace([' ', 'грн', 'грн.', '$'], ' ', $hotel_average_price);
+      $average_price = str_replace(' ', '', $average_price);
+      $average_price = (int)$average_price;
+      array_push($average_value_array, $average_price);
+    }
+    
+  }
+  $average_value_array = array_filter($average_value_array);
+  $average = array_sum($average_value_array)/count($average_value_array);
+  return $average;
+}

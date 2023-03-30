@@ -54,7 +54,7 @@ $current_posts = get_posts(array(
           <tbody>
             <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">📒 <?php _e("Кількість оголошень", "treba-wp"); ?></td>
-              <td class="whitespace-nowrap px-2 py-3"><?php echo $query->post_count; ?></td>
+              <td class="whitespace-nowrap px-2 py-3"><?php echo count($current_posts); ?></td>
             </tr>
             <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">⬇️ <?php _e("Найдешевша квартира", "treba-wp"); ?></td>
@@ -71,7 +71,7 @@ $current_posts = get_posts(array(
             <tr class="border-b border-gray-300 dark:border-gray-500">
               <td class="font-semibold whitespace-nowrap px-2 py-3">💲 <?php _e("Середня вартість", "treba-wp"); ?></td>
               <td class="whitespace-nowrap px-2 py-3">
-                <?php $avarege_price = ($get_max_price + $get_min_price)/2; echo $avarege_price; ?> <?php _e("грн/міс", "treba-wp"); ?>
+                <?php $get_avarege_price = get_city_average_price($query); echo $get_avarege_price; ?> <?php _e("грн/міс", "treba-wp"); ?>
               </td>
             </tr>
             <tr class="border-b border-gray-300 dark:border-gray-500">

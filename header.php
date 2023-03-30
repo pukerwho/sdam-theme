@@ -45,19 +45,27 @@ if (is_tax( 'city' )) {
   } else {
     // parent
     if (get_locale() === 'uk') {
+      $items_count = $term->count;
+      $current_page = 'ᐈ Cторінка №' . $paged;
+      $current_title = 'Довгострокова оренда квартири ' . $tax_title . ' - ' . $items_count . ' оголошень';
+      if ($paged > 1) {
+        $current_title = 'Довгострокова оренда квартири ' . $tax_title . ' - ' . $items_count . ' оголошень ' . $current_page;
+      }
+      $current_description = $tax_title . ': ' . $help_description_text . '' . $tax_title;
+
       $help_title_text = 'довгострокова оренда квартири - зняти квартиру в м.';
       $help_description_text = 'зняти квартиру на порталі Sdamkvartiry.com - широкий вибір квартир. Ціни, фото, контакти. Аренда квартири в м.';
-      $current_page = '. Cторінка №' . $paged;
+      
     } else {
       $help_title_text = 'долгосрочная аренда квартиры - снять квартиру в г.';
       $help_description_text = 'снять квартиру на портале Sdamkvartiry.com – широкий выбор квартир. Цены, фотографии, контакты. Аренда квартиры в г.';
       $current_page = '. Страница №' . $paged;
     }
-    $current_title = $tax_title . ': ' . $help_title_text . '' . $tax_title;
-    if ($paged > 1) {
-      $current_title = $tax_title . ': ' . $help_title_text . '' . $tax_title . '' . $current_page;
-    }
-    $current_description = $tax_title . ': ' . $help_description_text . '' . $tax_title;
+    // $current_title = $tax_title . ': ' . $help_title_text . '' . $tax_title;
+    // if ($paged > 1) {
+    //   $current_title = $tax_title . ': ' . $help_title_text . '' . $tax_title . '' . $current_page;
+    // }
+    // $current_description = $tax_title . ': ' . $help_description_text . '' . $tax_title;
   }       
 }
 

@@ -4,6 +4,7 @@
   <h1 class="text-3xl xl:text-4xl mb-8">🏠 <?php _e('Сайт про нерухомість в Україні', 'treba-wp'); ?></h1>
   <div class="citycards flex flex-nowrap md:flex-wrap overflow-x-scroll md:overflow-x-auto -mx-2 mb-16">
     <?php 
+    $i = 0; 
     $cities = get_terms(
       array( 
         'taxonomy' => 'city',
@@ -18,15 +19,30 @@
     );
     shuffle( $cities );
     foreach($cities as $city): ?>
+      <?php $i++ ?>
       <div class="citycard w-1/2 min-w-[200px] xl:w-1/5 mb-4 px-2">
         <div class="relative">
           <a href="<?php echo get_term_link($city->term_id, 'city') ?>" class="absolute-link"></a>
           <div>
             <img src="<?php echo carbon_get_term_meta($city->term_id, 'crb_city_img' ); ?>" alt="<?php echo $city->name ?>" loading="lazy" class="w-full h-72 object-cover rounded-lg">
           </div>
-          <div class="w-full h-full absolute top-0 left-0 bg-gradient-to-b to-black/90 from-transparent rounded-lg"></div>
+          <div class="w-full h-full absolute top-0 left-0 bg-gradient-to-b to-black/90 from-black/20 rounded-lg"></div>
           <div class="w-full absolute bottom-4 left-0">
             <div class="text-xl text-white text-center"><?php echo $city->name; ?></div>
+          </div>
+          <div class="absolute top-2 left-2">
+            <div class="flex items-center justify-center border-b-4 text-lg text-white font-extrabold">#<?php echo $i; ?></div>
+          </div>
+          <div class="absolute top-2 right-2">
+            <div class="flex items-center text-white">
+              <div class="mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div><?php echo termCount($city->term_id); ?></div>
+            </div>
           </div>
         </div>
       </div>
