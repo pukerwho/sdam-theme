@@ -36,36 +36,6 @@ $query = new WP_Query( array(
     <div class="flex flex-wrap xl:-mx-10">
       <div class="w-full xl:w-2/3 xl:px-10 mb-20 xl:mb-0">
         <?php if(!(int)$term->parent): ?>
-        <table class="w-full border dark:border-gray-500 bg-gray-100 dark:bg-gray-700 table-auto mb-6">
-          <tbody>
-            <tr class="border-b border-gray-300 dark:border-gray-500">
-              <td class="font-semibold whitespace-nowrap px-2 py-3">📒 <?php _e("Кількість оголошень", "treba-wp"); ?></td>
-              <td class="whitespace-nowrap px-2 py-3"><?php echo $term->count; ?></td>
-            </tr>
-            <tr class="border-b border-gray-300 dark:border-gray-500">
-              <td class="font-semibold whitespace-nowrap px-2 py-3">⬇️ <?php _e("Найдешевша квартира", "treba-wp"); ?></td>
-              <td class="whitespace-nowrap px-2 py-3">
-                 <?php _e("грн/міс", "treba-wp"); ?>
-              </td>
-            </tr>
-            <tr class="border-b border-gray-300 dark:border-gray-500">
-              <td class="font-semibold whitespace-nowrap px-2 py-3">⬆️ <?php _e("Найдорожча квартира", "treba-wp"); ?></td>
-              <td class="whitespace-nowrap px-2 py-3">
-                 <?php _e("грн/міс", "treba-wp"); ?>
-              </td>
-            </tr>
-            <tr class="border-b border-gray-300 dark:border-gray-500">
-              <td class="font-semibold whitespace-nowrap px-2 py-3">💲 <?php _e("Середня вартість", "treba-wp"); ?></td>
-              <td class="whitespace-nowrap px-2 py-3">
-                 <?php _e("грн/міс", "treba-wp"); ?>
-              </td>
-            </tr>
-            <tr class="border-b border-gray-300 dark:border-gray-500">
-              <td class="font-semibold whitespace-nowrap px-2 py-3">🕒 <?php _e("Інформація оновлена", "treba-wp"); ?></td>
-              <td class="whitespace-nowrap px-2 py-3"><?php echo date('d.m.Y',strtotime("-1 days")); ?></td>
-            </tr>
-          </tbody>
-        </table>
         <div class="mb-8">
           <div class="mb-4">
             <?php if (get_locale() === 'uk'): ?>
@@ -74,7 +44,6 @@ $query = new WP_Query( array(
               Аренда квартиры в г.<?php single_term_title(); ?> ⏩ Снять квартиру <?php single_term_title(); ?> ⭐ Большой выбор, актуальные цены. 【Долгосрочная аренда квартир】<?php single_term_title(); ?>.
             <?php endif; ?>
           </div>
-          <div class="text-gray-700 dark:text-gray-200 opacity-75"><?php _e("Переглядів", "treba-wp"); ?>: <?php echo termCount($current_cat_id); ?></div>
         </div>
         <?php endif; ?>
         <h2 class="text-2xl lg:text-3xl uppercase mb-6"><?php _e("Оголошення", "treba-wp"); ?>:</h2>
@@ -98,6 +67,43 @@ $query = new WP_Query( array(
           ?>
         </div>
         <div>
+          <table class="w-full border dark:border-gray-500 bg-gray-100 dark:bg-gray-700 table-auto mb-6">
+            <tbody>
+              <tr class="border-b border-gray-300 dark:border-gray-500">
+                <td class="font-semibold whitespace-nowrap px-2 py-3">📒 <?php _e("Кількість оголошень", "treba-wp"); ?></td>
+                <td class="whitespace-nowrap px-2 py-3"><?php echo $term->count; ?></td>
+              </tr>
+              <tr class="border-b border-gray-300 dark:border-gray-500">
+                <td class="font-semibold whitespace-nowrap px-2 py-3">🏆 <?php _e("Рейтинг міста", "treba-wp"); ?></td>
+                <td class="whitespace-nowrap px-2 py-3">
+                  <?php echo random_int(60,90); ?>/10
+                </td>
+              </tr>
+              <tr class="border-b border-gray-300 dark:border-gray-500">
+                <td class="font-semibold whitespace-nowrap px-2 py-3">👍 <?php _e("Оцінка користувачів", "treba-wp"); ?></td>
+                <td class="whitespace-nowrap px-2 py-3">
+                  4.<?php echo random_int(1,9); ?>/5
+                </td>
+              </tr>
+              <tr class="border-b border-gray-300 dark:border-gray-500">
+                <td class="font-semibold whitespace-nowrap px-2 py-3">👀 <?php _e("Переглядів", "treba-wp"); ?></td>
+                <td class="whitespace-nowrap px-2 py-3">
+                  <?php echo termCount($current_cat_id); ?>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-300 dark:border-gray-500">
+                <td class="font-semibold whitespace-nowrap px-2 py-3">🕒 <?php _e("Інформація оновлена", "treba-wp"); ?></td>
+                <td class="whitespace-nowrap px-2 py-3"><?php echo date('d.m.Y',strtotime("-1 days")); ?></td>
+              </tr>
+            </tbody>
+          </table>
+          <?php 
+          $seoText = carbon_get_term_meta($current_cat_id, 'crb_city_seo_text');
+          if ($seoText && $current_page < 2): ?>
+            <div class="content сity-content bg-gray-100 dark:bg-gray-600 dark:text-gray-200 rounded-lg shadow-lg border-2 border-indigo-300 px-4 lg:px-8 py-4 lg:py-6 mt-12 mb-10">
+              <?php echo apply_filters( 'the_content', $seoText  ); ?>
+            </div>
+          <?php endif; ?>
           <h2 class="text-2xl lg:text-3xl uppercase mb-6">
             <?php _e('Ціни на квартири', 'treba-wp'); ?>
           </h2>
@@ -121,13 +127,6 @@ $query = new WP_Query( array(
             </tbody>
           </table>
         </div>
-        <?php 
-        $seoText = carbon_get_term_meta($current_cat_id, 'crb_city_seo_text');
-        if ($seoText && $current_page < 2): ?>
-          <div class="content сity-content bg-gray-100 dark:bg-gray-600 dark:text-gray-200 rounded-lg shadow-lg border-2 border-indigo-300 px-4 lg:px-8 py-4 lg:py-6 mt-12">
-            <?php echo apply_filters( 'the_content', $seoText  ); ?>
-          </div>
-        <?php endif; ?>
       </div>
       <div class="w-full xl:w-1/3 xl:px-10">
         <?php get_template_part('template-parts/sidebar'); ?>

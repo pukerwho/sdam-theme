@@ -236,9 +236,3 @@ function get_city_average_price($query) {
   $average = array_sum($average_value_array)/count($average_value_array);
   return $average;
 }
-
-function get_count_places() {
-  global $wpdb;
-  $post_count = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = 'places' AND post_status = 'publish' AND taxonomy = 'city' ");
-  return $post_count;
-}
