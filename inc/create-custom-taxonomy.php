@@ -29,7 +29,7 @@ function register_custom_taxonomy() {
     ),
   );
 
-  register_taxonomy( 'city', array( 'places' ), $product_category_args );
+  register_taxonomy( 'city', array( 'post' ), $product_category_args );
 
   $service_category_args = array (
     'label' => 'Райони',
@@ -52,7 +52,7 @@ function register_custom_taxonomy() {
     'sort' => true,
   );
 
-  register_taxonomy( 'district', array( 'places' ), $service_category_args );
+  register_taxonomy( 'district', array( 'post' ), $service_category_args );
 }
 add_action( 'init', 'register_custom_taxonomy');
 
