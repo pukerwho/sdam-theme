@@ -135,7 +135,7 @@ if (is_home()) {
               <div class="mr-6"><a href="<?php echo get_page_url('page-add'); ?>" class="bg-indigo-500 hover:bg-indigo-700 text-gray-200 hover:text-gray-200 rounded px-6 py-2"><?php _e("Додати", "treba-wp"); ?> +</a></div>
                <div class="lang text-sm flex">
                 <?php if (function_exists('pll_the_languages')) { 
-                  pll_the_languages(); 
+                  pll_the_languages( array( 'hide_if_empty' => 0 ) ); 
                 } ?>
               </div>
             </div>
