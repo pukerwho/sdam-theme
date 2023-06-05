@@ -186,7 +186,7 @@ $current_cat_id = get_queried_object_id();
                 </tr>
                 <tr class="border-b border-gray-300 last:border-transparent">
                   <td class="whitespace-nowrap px-4 py-3">
-                    <div>🚦 <?php _e("Затори", "treba-wp"); ?></div>
+                    <div>🚦 <?php _e("Затори на дорозі", "treba-wp"); ?></div>
                   </td>
                   <td class="whitespace-nowrap px-4 py-3">
                     <?php 
@@ -247,7 +247,7 @@ $current_cat_id = get_queried_object_id();
                   $rand_value = $rand_array[array_rand($rand_array, 1)];
                   $get_value = meta_city($current_cat_id, $item["meta"], $rand_value);
                   if ($get_value === "Yes") {
-                    echo "<div>✅ ".$item["name"]."</div>";
+                    echo "<div>✅ ".__($item["name"], "treba-wp")."</div>";
                   }
                 }
               ?>
@@ -287,7 +287,7 @@ $current_cat_id = get_queried_object_id();
                   $rand_value = $rand_array[array_rand($rand_array, 1)];
                   $get_value = meta_city($current_cat_id, $item["meta"], $rand_value);
                   if ($get_value === "Yes") {
-                    echo "<div>❌ ".$item["name"]."</div>";
+                    echo "<div>❌ ". __($item["name"], "treba-wp")."</div>";
                   }
                 }
               ?>
@@ -336,6 +336,17 @@ $current_cat_id = get_queried_object_id();
             </div>
           </div>
           <!-- END Райони -->
+
+          <!-- Text -->
+          <?php 
+          $seoText = carbon_get_term_meta($current_cat_id, 'crb_city_seo_text');
+          if ($seoText && $current_page < 2): ?>
+            <div class="content сity-content bg-gray-100 dark:bg-gray-600 dark:text-gray-200 rounded-lg shadow-lg border-2 border-indigo-300 px-4 lg:px-8 py-4 lg:py-6 mt-12">
+              <?php echo apply_filters( 'the_content', $seoText  ); ?>
+            </div>
+          <?php endif; ?>
+          <!-- End Text --> 
+          
         </div>
       </div>
       <div class="w-full xl:w-1/3 xl:px-10">
