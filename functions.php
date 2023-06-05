@@ -36,6 +36,7 @@ include('inc/comments-functions.php');
 include('inc/post-vote.php');
 include('inc/create-custom-posts.php');
 include('inc/create-custom-taxonomy.php');
+include('inc/city-meta.php');
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;

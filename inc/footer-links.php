@@ -96,8 +96,8 @@ function get_term_keywords() {
 
 function prepare_links() {  
   $get_posts_links = get_post_keywords();
-  $get_terms_links = get_term_keywords();
-  $all_links = array_merge($get_posts_links, $get_terms_links); 
+  // $get_terms_links = get_term_keywords();
+  $all_links = array_merge($get_posts_links); 
   return $all_links;
 }
 

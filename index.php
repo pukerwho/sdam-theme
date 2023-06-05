@@ -1,53 +1,54 @@
 <?php get_header(); ?>
 
 <div class="container py-8 xl:py-12">
-  <h1 class="text-3xl xl:text-4xl mb-8">🏠 <?php _e('Сайт про нерухомість в Україні', 'treba-wp'); ?></h1>
-  <div class="citycards flex flex-nowrap md:flex-wrap overflow-x-scroll md:overflow-x-auto -mx-2 mb-16">
+  <h1 class="text-3xl xl:text-4xl mb-8">🧑‍🎨 <?php _e('Ідеї та поради для креативних людей', 'treba-wp'); ?></h1>
+  <div class="flex flex-wrap -mx-4 mb-6">
     <?php 
-    $i = 0; 
-    $cities = get_terms(
-      array( 
-        'taxonomy' => 'city',
-        'meta_query' => array(
-          array(
-            'key'       => '_crb_city_img',
-            'value' => '',
-            'compare' => '!=',
-          )
-        )
-      )
-    );
-    shuffle( $cities );
-    foreach($cities as $city): ?>
-      <?php $i++ ?>
-      <div class="citycard w-1/2 min-w-[200px] xl:w-1/5 mb-4 px-2">
+    $categories = get_terms(array( 'taxonomy' => 'category', 'parent' => 0, 'hide_empty' => false,'meta_query' => array( array('key' => '_crb_category_top', 'value' => 'yes', 'compare' => '===')) ));
+    foreach($categories as $category): ?>
+      <div class="w-1/2 lg:w-1/4 px-4 mb-6 last-of-type:mb-0">
         <div class="relative">
-          <a href="<?php echo get_term_link($city->term_id, 'city') ?>" class="absolute-link"></a>
-          <div>
-            <img src="<?php echo carbon_get_term_meta($city->term_id, 'crb_city_img' ); ?>" alt="<?php echo $city->name ?>" loading="lazy" class="w-full h-72 object-cover rounded-lg">
+          <a href="<?php echo get_term_link($category->term_id, 'category') ?>" class="absolute-link"></a>
+          <?php 
+            $r_photo_medium = wp_get_attachment_image_src(carbon_get_term_meta($category->term_id, 'crb_category_img'), 'medium'); 
+            $r_photo_large = wp_get_attachment_image_src(carbon_get_term_meta($category->term_id, 'crb_category_img'), 'large'); 
+            $r_photo_full = wp_get_attachment_image_src(carbon_get_term_meta($category->term_id, 'crb_category_img'), 'full'); 
+          ?>
+          <div class="h-[225px] lg:h-[295px]">
+            <img srcset="<?php echo $r_photo_medium[0] ?> 767w, 
+            <?php echo $r_photo_large[0] ?> 1280w,
+            <?php echo $r_photo_full[0] ?> 1440w"
+            sizes="(max-width: 767px) 767px,
+            (max-width: 1280px) 1280px,
+            1440px"
+            src="<?php echo $r_photo_full[0] ?>" alt="" loading="lazy"
+            class="w-full h-full object-cover rounded-lg"
+            >
           </div>
-          <div class="w-full h-full absolute top-0 left-0 bg-gradient-to-b to-black/90 from-black/20 rounded-lg"></div>
-          <div class="w-full absolute bottom-4 left-0">
-            <div class="text-xl text-white text-center"><?php echo $city->name; ?></div>
-          </div>
-          <div class="absolute top-2 left-2">
-            <div class="flex items-center justify-center border-b-4 text-lg text-white font-extrabold">#<?php echo $i; ?></div>
-          </div>
-          <div class="absolute top-2 right-2">
-            <div class="flex items-center text-white">
-              <div class="mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div><?php echo termCount($city->term_id); ?></div>
-            </div>
+          <div class="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-transparent to-black/50 rounded"></div>
+          <div class="w-full absolute bottom-4 text-xl text-white custom-font">
+            <div class="text-center"><?php echo $category->name; ?></div>
           </div>
         </div>
       </div>
     <?php endforeach; ?>
   </div>
+
+  <div class="flex flex-wrap lg:-mx-6 mb-16">
+    <?php 
+      $new_top_post = new WP_Query( array( 
+        'post_type' => 'post', 
+        'posts_per_page' => 2,
+        'order' => 'DESC'
+      ) );
+      if ($new_top_post->have_posts()) : while ($new_top_post->have_posts()) : $new_top_post->the_post(); 
+    ?>
+      <div class="w-full lg:w-1/2 lg:px-6 mb-6 lg:mb-0 last-of-type:mb-0">
+        <?php get_template_part("template-parts/home/top-posts"); ?>
+      </div>
+    <?php endwhile; endif; wp_reset_postdata(); ?>
+  </div>
+  
   <div class="flex flex-wrap xl:-mx-10">
     <div class="w-full xl:w-2/3 xl:px-10">
       <!-- БЛОГ -->
@@ -71,31 +72,6 @@
         </div>
       </div>
       <!-- END БЛОГ -->
-      <div>
-        <h2 class="text-3xl mb-8">🏛️ <?php _e('Довгострокова оренда квартир в Україні', 'treba-wp'); ?></h2>
-        <div class="flex items-center -mx-2 mb-8">
-          <div class="px-2">
-            <div class="tab-btn btn-primary cursor-pointer px-4 py-2" data-tab="new"><?php _e("Нові", "treba-wp"); ?></div>
-          </div>
-          <div class="hidden px-2">
-            <div class="tab-btn btn-secondary cursor-pointer px-4 py-2" data-tab="popular"><?php _e("Популярні", "treba-wp"); ?></div>
-          </div>
-        </div>
-        <div class="tab-content" data-tab="new">
-          <?php 
-            $new_posts = new WP_Query( array( 
-              'post_type' => 'places', 
-              'posts_per_page' => 10,
-            ) );
-            if ($new_posts->have_posts()) : while ($new_posts->have_posts()) : $new_posts->the_post(); 
-          ?>
-            <div class="mb-6">
-              <?php get_template_part('template-parts/place-item'); ?>
-            </div>
-          <?php endwhile; endif; wp_reset_postdata(); ?>
-        </div>
-      </div>
-      
     </div>
     <div class="w-full xl:w-1/3 xl:px-10">
       <?php get_template_part('template-parts/sidebar'); ?>

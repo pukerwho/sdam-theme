@@ -12,6 +12,13 @@ function crb_term_options() {
     Field::make( 'rich_text', 'crb_services_cat_content', 'Текст' ),
   ));
 
+  Container::make( 'term_meta', __( 'Term Options', 'crb' ) )
+  ->where( 'term_taxonomy', '=', 'category' )
+  ->add_fields( array(
+    Field::make( 'image', 'crb_category_img', 'Заглавная картинка' ),
+    Field::make( 'checkbox', 'crb_category_top', 'Топ?' ),
+  ));
+
   Container::make( 'term_meta', __( 'City Options', 'crb' ) )
   ->where( 'term_taxonomy', '=', 'city' ) // only show our new field for categories
   ->add_fields( array(

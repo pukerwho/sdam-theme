@@ -21,71 +21,24 @@ if (is_page()) {
 
 if (is_tax( 'city' )) {
 	$tax_title = single_term_title( "", false );
-  $paged = (get_query_var('page')) ? get_query_var('page') : 1;
-  
-  $term = get_term_by('slug', get_query_var('term'), 'city');
-  if((int)$term->parent) {
-    // child
-    $parent_term = get_term_by( 'id', $term->parent, 'city' );  
-    $parent_name = $parent_term->name; 
-    if (get_locale() === 'uk') {
-      $help_title_text = '. Довгострокова оренда квартири - зняти квартиру';
-      $help_description_text = '. Зняти квартиру на порталі Sdamkvartiry.com - широкий вибір квартир. Ціни, фото, контакти. Аренда квартири в м.';
-      $current_page = '. Cторінка №' . $paged;
-    } else {
-      $help_title_text = '. Долгосрочная аренда квартиры - снять квартиру';
-      $help_description_text = '. Снять квартиру на портале Sdamkvartiry.com – широкий выбор квартир. Цены, фотографии, контакты. Аренда квартиры в г.';
-      $current_page = '. Страница №' . $paged;
-    }
-    $current_title = $parent_name . ': ' . $tax_title  . '' . $help_title_text;
-    if ($paged > 1) {
-      $current_title = $parent_name . ': ' . $help_title_text . '' . $tax_title . '' . $current_page;
-    }
-    $current_description = $parent_name . ': ' . $tax_title  . '' . $help_description_text;
+  if (get_locale() === 'uk') {
+    $current_title = "Рейтинг міста ".$tax_title;
+    $current_description = "Загальний рейтинг міста ".$tax_title.". Оцінки від мешканців. Якість життя в місті ".$tax_title.", які є переваги та недоліки.";
   } else {
-    // parent
-    if (get_locale() === 'uk') {
-      $items_count = $term->count;
-      $current_page = 'ᐈ Cторінка №' . $paged;
-      $current_title = 'Довгострокова оренда квартири ' . $tax_title . ' - ' . $items_count . ' оголошень';
-      if ($paged > 1) {
-        $current_title = 'Довгострокова оренда квартири ' . $tax_title . ' - ' . $items_count . ' оголошень ' . $current_page;
-      }
-      $current_description = $tax_title . ': ' . $help_description_text . '' . $tax_title;
-
-      $help_title_text = 'довгострокова оренда квартири - зняти квартиру в м.';
-      $help_description_text = 'зняти квартиру на порталі Sdamkvartiry.com - широкий вибір квартир. Ціни, фото, контакти. Аренда квартири в м.';
-      
-    } else {
-      $help_title_text = 'долгосрочная аренда квартиры - снять квартиру в г.';
-      $help_description_text = 'снять квартиру на портале Sdamkvartiry.com – широкий выбор квартир. Цены, фотографии, контакты. Аренда квартиры в г.';
-      $current_page = '. Страница №' . $paged;
-    }
-    // $current_title = $tax_title . ': ' . $help_title_text . '' . $tax_title;
-    // if ($paged > 1) {
-    //   $current_title = $tax_title . ': ' . $help_title_text . '' . $tax_title . '' . $current_page;
-    // }
-    // $current_description = $tax_title . ': ' . $help_description_text . '' . $tax_title;
-  }       
+    $current_title = "Рейтинг города ".$tax_title;
+    $current_description = "Общий рейтинг города ".$tax_title.". Оценки жителей. Качество жизни в городе ".$tax_title.", какие преимущества и недостатки.";
+  }      
 }
 
 if (is_tax( 'district' )) {
 	$district_title = single_term_title( "", false );
-  $paged = (get_query_var('page')) ? get_query_var('page') : 1;
-	if (get_locale() === 'uk') {
-  	$help_title_text = 'зняти квартиру (довгостроково), вигідна аренда квартири';
-    $help_description_text = 'пошук квартири у районі. Знайти вигідно квартиру. Ціни, фото, контакти.';
-    $current_page = '. Cторінка №' . $paged;
+  if (get_locale() === 'uk') {
+    $current_title = $district_title." - що відомо, рейтинг району, оцінки";
+    $current_description = $district_title.". Які переваги та недоліки у району. Оцінки якості життя у районі. Читайте на сайті.";
   } else {
-    $help_title_text = 'снять квартиру (долгосрочно), выгодная аренда квартиры';
-    $help_description_text = 'поиск квартир в районе. Найти выгодно квартиру. Цены, фотографии, контакты.';
-    $current_page = '. Страница №' . $paged;
-  }
-	$current_title = $district_title . ': ' . $help_title_text;
-  if ($paged > 1) {
-    $current_title = $city_title . ': ' . $help_title_text . '' . $city_title . '' . $current_page;
-  }
-  $current_description = $district_title . ': ' . $help_description_text;
+    $current_title = $district_title." - что известно, рейтинг района, оценки";
+    $current_description = $district_title.". Какие преимущества и недостатки у района. Оценки качества жизни в районе. Читайте на сайте.";
+  }  
 }
 
 if (is_home()) {
@@ -111,9 +64,6 @@ if (is_home()) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#1D1E22" />
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.ico"/>
 
   <?php if (is_singular()): ?>
