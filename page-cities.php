@@ -68,7 +68,7 @@ Template Name: Всі міста
                       <div><a href="<?php echo get_term_link($city->term_id, 'city'); ?>"><?php echo $city->name; ?></a></div>
                     </td>
                     <td class="whitespace-nowrap px-4 py-3">
-                      <?php echo get_term_meta($city->term_id, "meta_city_rating", true)?> / 100
+                      <?php $id = $city->term_id; echo get_term_meta($id, "meta_city_rating", true)?> / 100
                     </td>
                   </tr>
                   <?php endforeach; ?>
