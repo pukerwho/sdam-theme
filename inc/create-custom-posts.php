@@ -18,4 +18,4 @@ function create_post_type() {
 
   
 }
-add_action( 'init', 'create_post_type' ); 
+// add_action( 'init', 'create_post_type' ); 
