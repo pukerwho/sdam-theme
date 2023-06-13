@@ -8,6 +8,7 @@ foreach ($cities as $city) {
     $district_id = $district['id'];
     if ($district_id == $current_cat_id) {
       $city_name = $city->name;
+      $city_parent_id = $city->term_id;
     }
   }
 }
@@ -32,7 +33,7 @@ foreach ($cities as $city) {
           <meta itemprop="position" content="2">
         </li>
         <li itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem' class="breadcrumbs_item px-4">
-          <a itemprop="item" href="<?php echo get_term_link($city_id, 'city'); ?>" class="text-indigo-400 dark:text-indigo-200">
+          <a itemprop="item" href="<?php echo get_term_link($city_parent_id, 'city'); ?>" class="text-indigo-400 dark:text-indigo-200">
             <span itemprop="name"><?php echo $city_name; ?></span>
           </a>                        
           <meta itemprop="position" content="3">
