@@ -61,14 +61,15 @@ Template Name: Всі міста
                   </tr>
                 </thead>
                 <tbody>
-                  <?php $cities = get_terms(array('taxonomy' => 'city', 'parent' => 0, 'meta_key' => 'meta_city_rating', 'orderby' => 'meta_value', 'order' => 'DESC')); 
+                  <?php $cities = get_terms(array('taxonomy' => 'city', 'parent' => 0, 'meta_key' => 'meta_city_rating_new', 'orderby' => 'meta_value', 'order' => 'DESC')); 
                   foreach ($cities as $city): ?>
                   <tr class="border-b border-gray-300 last:border-transparent">
                     <td class="whitespace-nowrap border-r px-4 py-3">
                       <div><a href="<?php echo get_term_link($city->term_id, 'city'); ?>"><?php echo $city->name; ?></a></div>
                     </td>
                     <td class="whitespace-nowrap px-4 py-3">
-                      <?php $id = $city->term_id; echo get_term_meta($id, "meta_city_rating", true)?> / 100
+                      <?php $id = $city->term_id; echo get_term_meta($id, "meta_city_rating_new", true); ?> 
+                      / 100
                     </td>
                   </tr>
                   <?php endforeach; ?>

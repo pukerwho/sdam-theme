@@ -31,6 +31,7 @@ function crb_term_options() {
           'taxonomy' => 'district',
         )
       ) ),
+    Field::make( 'text', 'crb_city_rating', 'Рейтинг міста' ),
     Field::make( 'rich_text', 'crb_city_seo_text', 'SE-O Текст' ),
   ));
 

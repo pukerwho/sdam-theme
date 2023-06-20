@@ -1,4 +1,3 @@
-<?php if ( !is_singular('post') && ( !is_category() ) ): ?>
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Зараз читають", "treba-wp"); ?></div>
   <div>
@@ -23,14 +22,13 @@
     <?php endwhile; endif; wp_reset_postdata(); ?>
   </div>
 </div>
-<?php endif; ?>
 
 <div class="bg-gray-100 dark:bg-gray-700 shadow-lg rounded border-t-4 border-t-indigo-500 p-4 mb-12">
   <div class="text-xl uppercase font-bold mb-4"><?php _e("Рейтинг міст", "treba-wp"); ?></div>
   <div>
     <?php 
     $index = 1;
-    $categories = get_terms(array( 'taxonomy' => 'city', 'parent' => 0, 'meta_key' => 'meta_city_rating',
+    $categories = get_terms(array( 'taxonomy' => 'city', 'parent' => 0, 'meta_key' => 'meta_city_rating_new',
    'orderby' => 'meta_value', 'order' => 'DESC' ));
     foreach($categories as $category): ?>
       <div class="relative text-lg hover:text-indigo-500 mb-2">
@@ -41,7 +39,7 @@
             <div class=""><?php echo $category->name; ?></div>
           </div>
           <div class="text-sm opacity-75">
-            <?php echo get_term_meta( $category->term_id, "meta_city_rating", true ); ?> / 100
+            <?php echo get_term_meta( $category->term_id, "meta_city_rating_new", true ); ?> / 100
           </div>
         </div>
         

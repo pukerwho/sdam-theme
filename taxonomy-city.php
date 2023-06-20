@@ -68,10 +68,8 @@ $current_cat_id = get_queried_object_id();
                   </td>
                   <td class="whitespace-nowrap px-4 py-3">
                     <?php 
-                      // $rand_lang_array = ["Українська", "Російська"]; 
-                      // $rand_value = $rand_lang_array[array_rand($rand_lang_array, 1)];
                       $rand_value = random_int(60,90);
-                      $get_rating_meta = meta_city($current_cat_id, 'meta_city_rating', $rand_value);
+                      $get_rating_meta = meta_city($current_cat_id, 'meta_city_rating_new', $rand_value);
                       echo $get_rating_meta; 
                     ?> / 100
                   </td>
@@ -346,7 +344,7 @@ $current_cat_id = get_queried_object_id();
             </div>
           <?php endif; ?>
           <!-- End Text --> 
-          
+
         </div>
       </div>
       <div class="w-full xl:w-1/3 xl:px-10">
