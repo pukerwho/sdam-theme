@@ -6,6 +6,13 @@
         'post_type' => 'post', 
         'posts_per_page' => 5,
         'orderby'        => 'rand',
+        'meta_query' => array(
+          array(
+            'key' => '_crb_post_mainhide',
+            'value' => 'yes',
+            'compare' => '!='
+          ),
+        ),
       ) );
       if ($now_posts->have_posts()) : while ($now_posts->have_posts()) : $now_posts->the_post(); 
     ?>
@@ -56,6 +63,13 @@
       $new_posts = new WP_Query( array( 
         'post_type' => 'post', 
         'posts_per_page' => 5,
+        'meta_query' => array(
+          array(
+            'key' => '_crb_post_mainhide',
+            'value' => 'yes',
+            'compare' => '!='
+          ),
+        ),
       ) );
       if ($new_posts->have_posts()) : while ($new_posts->have_posts()) : $new_posts->the_post(); 
     ?>

@@ -39,7 +39,14 @@
       $new_top_post = new WP_Query( array( 
         'post_type' => 'post', 
         'posts_per_page' => 2,
-        'order' => 'DESC'
+        'order' => 'DESC',
+        'meta_query' => array(
+          array(
+            'key' => '_crb_post_mainhide',
+            'value' => 'yes',
+            'compare' => '!='
+          ),
+        ),
       ) );
       if ($new_top_post->have_posts()) : while ($new_top_post->have_posts()) : $new_top_post->the_post(); 
     ?>
@@ -60,6 +67,13 @@
               'post_type' => 'post', 
               'posts_per_page' => 10,
               'offset' => 2,
+              'meta_query' => array(
+                array(
+                  'key' => '_crb_post_mainhide',
+                  'value' => 'yes',
+                  'compare' => '!='
+                ),
+              ),
             ) );
             if ($new_posts->have_posts()) : while ($new_posts->have_posts()) : $new_posts->the_post(); 
           ?>
