@@ -47,17 +47,6 @@
   <div class="custom-font mr-4">
     <?php if (carbon_get_the_post_meta('crb_post_author')): ?>
       <span class="italic"><?php echo carbon_get_the_post_meta('crb_post_author'); ?></span>
-      <div class="flex items-center text-sm">
-        <!-- instagram -->
-        <?php if (carbon_get_the_post_meta('crb_post_author_instagram')): ?>
-          <div class="italic pb-2 pr-3"><a href="<?php echo carbon_get_the_post_meta('crb_post_author_instagram'); ?>" class="text-indigo-500">Instagram</a></div>
-        <?php endif; ?>
-        <!-- facebook --> 
-        <?php if (carbon_get_the_post_meta('crb_post_author_facebook')): ?>
-          <div class="italic pb-2"><a href="<?php echo carbon_get_the_post_meta('crb_post_author_facebook'); ?>" class="text-indigo-500">Facebook</a></div>
-        <?php endif; ?>
-      </div>
-
     <?php else: ?>
       <?php echo get_the_author(); ?>
     <?php endif; ?>

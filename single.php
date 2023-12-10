@@ -59,6 +59,9 @@
                     <?php echo get_the_author(); ?>
                   <?php endif; ?>
                 </div>
+                <?php if (carbon_get_the_post_meta('crb_post_editor')): ?>
+                  <div><span class="font-medium"><?php _e("Перевірив", "treba-wp"); ?></span>: <span class="italic"><?php echo carbon_get_the_post_meta('crb_post_editor'); ?></span></div>
+                <?php endif; ?>
               </div>
               <div class="flex flex-wrap -mx-2">
                 <div class="text-sm opacity-75 px-2">
